@@ -4,27 +4,17 @@
 
 int main(int argc, char **argv) 
 {
-	char    ch;
-	int     i;
-	size_t	j;
-
-	i = 1;
-	// Print attribute values
 	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;;
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	else if (argc > 1)
 	{
-		while (i < argc)
+		char ch;
+		for (int i = 1; i < argc; i++)
 		{
-			j = 0;
-			while (j < std::strlen(argv[i]))
-			{
+			for (size_t j = 0; j < std::strlen(argv[i]); j++)
 				std::cout << (ch = toupper(argv[i][j]));
-				j++;
-			}
 			if (argv[i + 1])
 				std::cout << " ";
-			i++;
 		}
 		std::cout << std::endl;
     }
