@@ -1,7 +1,8 @@
 CC = g++ -Wall -Wextra -Werror
 
 SRC := phonebook.cpp \
-		main.cpp
+		main.cpp \
+		contact.cpp
 NAME := phonebook
 
 OBJ	= $(SRC:.c=.o)
