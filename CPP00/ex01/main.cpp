@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 02:55:21 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/04/26 11:58:05 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/05/03 12:37:43 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 int main(void) 
 {
 	std::string	input;
-
+	Phonebook phone;
+	
 	while(1)
 	{
 		//wait for prompt
