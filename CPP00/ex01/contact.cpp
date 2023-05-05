@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:40:43 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/05/03 13:24:14 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/05/05 15:27:40 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,3 +45,27 @@ void	Contact::setDarkSecret(std::string const str)
 }
 
 //getting functions
+const std::string	Contact::getFirstName(void)
+{
+	return(_firstName);
+}
+
+const std::string	Contact::getLastName(void)
+{
+	return(_lastName);
+}
+
+const std::string	Contact::getNickName(void)
+{
+	return(_nickName);
+}
+
+const std::string	Contact::getPhoneNbr(void)
+{
+	return(_phoneNumber);
+}
+
+const std::string	Contact::getDarkSecret(void)
+{
+	return(_darkestSecret);
+}
