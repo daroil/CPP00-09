@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 02:54:07 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/05/05 18:33:54 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/05/05 19:03:42 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <cstring>
 #include <cctype>
+#include <iomanip>
 
 #include "contact.hpp"
 
@@ -27,6 +28,7 @@ class Phonebook
 		void	increasePrivate();
 		void	showPrivate();
 		void	setContact(void);
+		void	getContact(void);
 		void	printContact(void);
 		const std::string	getInput(int curCase, const std::string prompt);
 		int	publical;

@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 02:53:58 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/05/05 18:51:47 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/05/05 19:01:26 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,22 @@ void	Phonebook::setContact(void)
 
 void	Phonebook::printContact(void)
 {
+	std::cout << "+----------+----------+----------+----------+" << std::endl
+	<< "|  INDEX   |FIRST NAME| LAST NAME| NICKNAME |" << std::endl
+	<< "+----------+----------+----------+----------+" << std::endl;
+
+	for (int i = 0 ; i <= _counter ; i++)
+	{
+		std::cout << "|" << std::setw(10) << i << "|";
+		std::cout << std::setw(10) << _array[i].getFirstName() << "|";
+		std::cout << std::setw(10) << _array[i].getLastName()  << "|";
+		std::cout << std::setw(10) << _array[i].getNickName()  << "|" << std::endl;
+	}
+	std::cout << "+----------+----------+----------+----------+" << std::endl;
+}
+
+void	Phonebook::getContact(void)
+{
 	int	index;
 	
 	if (_counter == 0)
@@ -52,6 +68,7 @@ void	Phonebook::printContact(void)
 		std::cout << "You must add some contacts first!" << std::endl;
 		return ;
 	}
+	printContact();
 	index = std::stoi(getInput(3, "Enter index"));
 	std::cout << _array[index].getFirstName() << std::endl;
 	std::cout << _array[index].getLastName() << std::endl;
@@ -99,27 +116,24 @@ const std::string	Phonebook::getInput(int curCase, const std::string prompt)
 			if (stringIsAlpha(input))
 				return (input);
 		}
-		else if (curCase == 0)
+		else if (curCase == 0 || curCase == 3)
 		{
-			std::cout << prompt << std::endl;
-			std::cout << "Only digits!" << std::endl;
-			std::getline(std::cin,input);
-			if (stringIsDigit(input))
-				return (input);
-		}
-		else if (curCase == 3)
-		{
-			int	index;
 			std::cout << prompt << std::endl;
 			std::cout << "Only digits!" << std::endl;
 			std::getline(std::cin,input);
 			if (stringIsDigit(input))
 			{
-				index = std::stoi(input);
-				if (index > 7 || index < 0 || index >= _counter)
-					std::cout << "Wrong index" << std::endl;
+				if(curCase == 3)
+				{
+					int	index;
+					index = std::stoi(input);
+					if (index > 7 || index < 0 || index >= _counter)
+						std::cout << "Wrong index" << std::endl;
+					else
+						return(input);	
+				}
 				else
-					return(input);
+					return (input);
 			}
 		}
 		else
