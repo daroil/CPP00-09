@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 02:55:21 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/05/05 15:46:06 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/05/05 18:38:34 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,31 +18,20 @@ int main(void)
 	Phonebook phone;
 	
 	std::cout << "Welcome to a very wonderful CrapBook" << std::endl;
-	std::cout << "Please enter your prompt" << std::endl;
 	std::cout << "Type HELP, if you need help!" << std::endl;
 	while(1)
 	{
 		//wait for prompt
-		// std::getline(std::cin,input);
-		input = phone.getInput(0);
+		input = phone.getInput(1, "Please enter your prompt");
 		//if prompt == exit - break
 		if (input == "EXIT")
-		{
-			std::cout << "case 1" << std::endl;
 			return(0);
-		}
 		//else if prompt == add - exec add
 		else if (input == "ADD")
-		{
-			phone.setContact(0);
-			std::cout << "case 2" << std::endl;
-		}
+			phone.setContact();
 		//else if prompt == search - exec search
 		else if (input == "SEARCH")
-		{
-			phone.printContact(0);
-			std::cout << "case 3" << std::endl;
-		}
+			phone.printContact();
 		else if (input == "HELP")
 		{
 			std::cout << "To add new contact type ADD" << std::endl;

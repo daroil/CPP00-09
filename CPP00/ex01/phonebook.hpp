@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 02:54:07 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/05/05 15:51:39 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/05/05 18:33:54 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,13 @@ class Phonebook
 		~Phonebook();
 		void	increasePrivate();
 		void	showPrivate();
-		void	setContact(int index);
-		void	printContact(int index);
-		const std::string	getInput(int curCase);
+		void	setContact(void);
+		void	printContact(void);
+		const std::string	getInput(int curCase, const std::string prompt);
 		int	publical;
+		bool	stringIsAlpha(const std::string input);
+		bool	stringIsDigit(const std::string input);
+	
 	private:
 		Contact	_array[8];
 		int		_counter;
