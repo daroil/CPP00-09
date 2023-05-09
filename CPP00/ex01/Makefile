@@ -1,4 +1,4 @@
-CC = g++ -Wall -Wextra -Werror
+CC = c++ -Wall -Wextra -Werror
 
 SRC := phonebook.cpp \
 		main.cpp \

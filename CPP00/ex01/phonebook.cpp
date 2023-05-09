@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 02:53:58 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/05/05 19:01:26 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/05/09 12:11:51 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	Phonebook::printContact(void)
 	<< "|  INDEX   |FIRST NAME| LAST NAME| NICKNAME |" << std::endl
 	<< "+----------+----------+----------+----------+" << std::endl;
 
-	for (int i = 0 ; i <= _counter ; i++)
+	for (int i = 0 ; i < _counter ; i++)
 	{
 		std::cout << "|" << std::setw(10) << i << "|";
 		std::cout << std::setw(10) << _array[i].getFirstName() << "|";
@@ -113,7 +113,7 @@ const std::string	Phonebook::getInput(int curCase, const std::string prompt)
 			std::cout << prompt << std::endl;
 			std::cout << "Only alpha!" << std::endl;
 			std::getline(std::cin,input);
-			if (stringIsAlpha(input))
+			if (stringIsAlpha(input) && input.length() > 0)
 				return (input);
 		}
 		else if (curCase == 0 || curCase == 3)
@@ -121,7 +121,7 @@ const std::string	Phonebook::getInput(int curCase, const std::string prompt)
 			std::cout << prompt << std::endl;
 			std::cout << "Only digits!" << std::endl;
 			std::getline(std::cin,input);
-			if (stringIsDigit(input))
+			if (stringIsDigit(input) && input.length() > 0)
 			{
 				if(curCase == 3)
 				{
