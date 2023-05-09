@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 02:53:58 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/05/09 12:11:51 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/05/09 17:04:38 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,13 @@ void	Phonebook::setContact(void)
 		_counter++;
 }
 
+std::string	Phonebook::trunk(const std::string input)
+{
+	if (input.length() >= 10)
+		
+		
+}
+
 void	Phonebook::printContact(void)
 {
 	std::cout << "+----------+----------+----------+----------+" << std::endl
@@ -52,9 +59,9 @@ void	Phonebook::printContact(void)
 	for (int i = 0 ; i < _counter ; i++)
 	{
 		std::cout << "|" << std::setw(10) << i << "|";
-		std::cout << std::setw(10) << _array[i].getFirstName() << "|";
-		std::cout << std::setw(10) << _array[i].getLastName()  << "|";
-		std::cout << std::setw(10) << _array[i].getNickName()  << "|" << std::endl;
+		std::cout << std::setw(10) << _array[i].trunk(_array[i].getFirstName()) << "|";
+		std::cout << std::setw(10) << _array[i].trunk(_array[i].getLastName()) << "|";
+		std::cout << std::setw(10) << _array[i].trunk(_array[i].getNickName()) << "|" << std::endl;
 	}
 	std::cout << "+----------+----------+----------+----------+" << std::endl;
 }
