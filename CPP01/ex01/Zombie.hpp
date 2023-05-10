@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 13:15:29 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/05/10 14:47:02 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/05/10 14:50:45 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,9 @@ class Zombie
 		void				announce(void);
 		void				setName(std::string name);
 	private:
-		std::string	_name;
+		std::string			_name;
 };
 
-Zombie*						newZombie(std::string name);
-void						randomChump(std::string name);
 Zombie*						zombieHorde(int N, std::string name);
 bool						stringIsDigit(const std::string input);
 

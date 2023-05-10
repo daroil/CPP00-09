@@ -6,7 +6,7 @@
 #    By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 13:15:16 by dhendzel          #+#    #+#              #
-#    Updated: 2023/05/10 14:30:41 by dhendzel         ###   ########.fr        #
+#    Updated: 2023/05/10 14:51:08 by dhendzel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC := main.cpp \
 		Zombie.cpp \
 		zombieHorde.cpp
 
-NAME := Brainz 
+NAME := zombieHorde 
 
 OBJ	= $(SRC:.cpp=.o)
 
