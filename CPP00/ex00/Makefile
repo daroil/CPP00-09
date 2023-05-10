@@ -1,19 +1,19 @@
 CC = g++ -Wall -Wextra -Werror
 
-SRC := megaphone.cpp
-NAME := megaphone
+SRC := Megaphone.cpp
+NAME := Megaphone
 
-OBJ	= $(SRC:.c=.o)
+OBJ	= $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-# %.o: %.c
-# 	$(CC) -c $^ -o $@
+clean:
+	rm $(OBJ)
 
-fclean:
+fclean: clean
 	rm $(NAME)
 
 re: fclean all
