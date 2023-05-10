@@ -1,7 +1,7 @@
 CC = c++ -Wall -Wextra -Werror -std=c++98
 
 SRC := Phonebook.cpp \
-		Main.cpp \
+		main.cpp \
 		Contact.cpp
 NAME := Phonebook
 
