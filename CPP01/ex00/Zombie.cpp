@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/10 13:10:55 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/05/10 14:15:03 by dhendzel         ###   ########.fr       */
+/*   Created: 2023/05/10 13:15:26 by dhendzel          #+#    #+#             */
+/*   Updated: 2023/05/10 14:14:40 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int	main()
+Zombie::Zombie(const std::string name):_name(name)
 {
-	Zombie chel("GAY");
-	Zombie *newZ;
-	newZ = newZombie("joj");
-	newZ->announce();
-	delete newZ;
-	randomChump("ppppp");
-	chel.announce();
-	return (0);
+	std::cout << _name << " raise from the dead!" << std::endl;
+}
+
+Zombie::~Zombie(void) 
+{
+	std::cout << _name << " can finally rest!" << std::endl;
+}
+
+void	Zombie::announce(void)
+{
+	std::cout << _name << std::endl;
 }
