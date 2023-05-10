@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 02:53:58 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/05/09 17:04:38 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/05/09 22:54:27 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,6 @@
 Phonebook::Phonebook() : _counter(0), _index(0) {}
 
 Phonebook::~Phonebook() {}
-
-void	Phonebook::increasePrivate(void)
-{
-	if (_index < 2)
-		_index++;
-	else
-	{
-		_index = 0;
-		std::cout << "max private reached" << std::endl;
-	}
-}
 
 void	Phonebook::setContact(void)
 {
@@ -45,9 +34,16 @@ void	Phonebook::setContact(void)
 
 std::string	Phonebook::trunk(const std::string input)
 {
+	std::string	truncString;
 	if (input.length() >= 10)
-		
-		
+	{
+		truncString = input.substr(0,9);
+    	char ch = '.';
+    	truncString.push_back(ch);
+		return (truncString);
+	}
+	else
+		return(input);
 }
 
 void	Phonebook::printContact(void)
@@ -55,13 +51,12 @@ void	Phonebook::printContact(void)
 	std::cout << "+----------+----------+----------+----------+" << std::endl
 	<< "|  INDEX   |FIRST NAME| LAST NAME| NICKNAME |" << std::endl
 	<< "+----------+----------+----------+----------+" << std::endl;
-
 	for (int i = 0 ; i < _counter ; i++)
 	{
 		std::cout << "|" << std::setw(10) << i << "|";
-		std::cout << std::setw(10) << _array[i].trunk(_array[i].getFirstName()) << "|";
-		std::cout << std::setw(10) << _array[i].trunk(_array[i].getLastName()) << "|";
-		std::cout << std::setw(10) << _array[i].trunk(_array[i].getNickName()) << "|" << std::endl;
+		std::cout << std::setw(10) << trunk(_array[i].getFirstName()) << "|";
+		std::cout << std::setw(10) << trunk(_array[i].getLastName()) << "|";
+		std::cout << std::setw(10) << trunk(_array[i].getNickName()) << "|" << std::endl;
 	}
 	std::cout << "+----------+----------+----------+----------+" << std::endl;
 }
@@ -149,9 +144,4 @@ const std::string	Phonebook::getInput(int curCase, const std::string prompt)
 			return (NULL);
 		}
 	}
-}
-
-void	Phonebook::showPrivate(void)
-{
-	std::cout << "private =" << _index << std::endl;
 }
