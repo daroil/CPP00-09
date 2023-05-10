@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 13:10:55 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/05/10 14:15:03 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/05/10 14:19:36 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	main()
 {
-	Zombie chel("GAY");
+	Zombie chel("Jack");
 	Zombie *newZ;
-	newZ = newZombie("joj");
+	newZ = newZombie("Brandon");
 	newZ->announce();
 	delete newZ;
-	randomChump("ppppp");
+	randomChump("Your mom");
 	chel.announce();
 	return (0);
 }
