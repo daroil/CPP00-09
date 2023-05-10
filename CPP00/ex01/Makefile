@@ -1,9 +1,9 @@
 CC = c++ -Wall -Wextra -Werror -std=c++98
 
-SRC := phonebook.cpp \
-		main.cpp \
-		contact.cpp
-NAME := phonebook
+SRC := Phonebook.cpp \
+		Main.cpp \
+		Contact.cpp
+NAME := Phonebook
 
 OBJ	= $(SRC:.cpp=.o)
 
@@ -12,8 +12,6 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-# %.o: %.c
-# 	$(CC) -c $^ -o $@
 clean:
 	rm $(OBJ)
 

@@ -6,11 +6,11 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:40:43 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/05/09 16:56:30 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/05/10 13:05:25 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "contact.hpp"
+#include "Contact.hpp"
 
 //constructor
 Contact::Contact() {}
