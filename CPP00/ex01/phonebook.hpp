@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/26 02:54:07 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/05/10 13:05:37 by dhendzel         ###   ########.fr       */
+/*   Created: 2023/05/10 13:15:04 by dhendzel          #+#    #+#             */
+/*   Updated: 2023/05/10 13:28:09 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define PHONEBOOK_HPP
 
 #include <iostream>
-#include <cstring>
+ 
 #include <cctype>
 #include <iomanip>
 
