@@ -6,15 +6,18 @@
 #    By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 13:15:16 by dhendzel          #+#    #+#              #
-#    Updated: 2023/05/10 14:51:08 by dhendzel         ###   ########.fr        #
+#    Updated: 2023/05/15 12:41:12 by dhendzel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++ -Wall -Wextra -Werror -std=c++98
 
 SRC := main.cpp \
+		Weapon.cpp \
+		HumanA.cpp \
+		HumanB.cpp
 
-NAME := Brain
+NAME := Violence
 
 OBJ	= $(SRC:.cpp=.o)
 
