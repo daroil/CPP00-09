@@ -19,7 +19,7 @@ void	sedding(std::string *stringToRep, std::string *stringToKeep, std::string *f
 	i = (*fileContent).find((*stringToRep));
 	while(i != -1)
 	{
-		std::cout << "i = " << i << std::endl;
+		// std::cout << "i = " << i << std::endl;
 		(*fileContent).erase(i, (*stringToRep).length());
 		(*fileContent).insert(i, (*stringToKeep));
 		i = (*fileContent).find((*stringToRep));
@@ -27,33 +27,31 @@ void	sedding(std::string *stringToRep, std::string *stringToKeep, std::string *f
 
 }
 
+void	errorMessage(std::string message)
+{
+		std::cout << message << std::endl <<"usage ./<programName> <fileName> <stringToRep> <stringToKeep>" << std::endl;
+
+}
+
 int	main(int argc, char **argv)
 {
 	if (argc != 4)
-	{
-		std::cout << "usage ./<programName> <fileName> <stringToRep> <stringToKeep>" << std::endl;
-		return (1);
-	}
-	
+		return (errorMessage("wrong number of arguements"), 1);
 	std::ifstream	infile(argv[1]);
 	std::string		stringToRep = argv[2];
 	std::string		stringToKeep = argv[3];
 	if (!infile.good())
-	{
-		std::cout << "usage ./<programName> <fileName> <stringToRep> <stringToKeep>" << std::endl;
-		return (1);
-	}
+		return (errorMessage("can't open file"), 1);
+	if (!stringToRep.length() || !stringToKeep.length())
+		return (errorMessage("wrong arguements"), 1);
 	std::ofstream	outfile(std::string(argv[1]) + ".replace");
 	std::string		fileContent;
 	char			c;
 	while(infile.get(c))
-	{
-		std::cout << c;
 		fileContent.push_back(c);
-	}
-	std::cout << std::endl << fileContent;
+	// std::cout << std::endl << fileContent;
 	sedding(&stringToRep, &stringToKeep, &fileContent);
-	std::cout << std::endl << fileContent;
+	// std::cout << std::endl << fileContent;
 	outfile << fileContent;
 	infile.close();
 	outfile.close();
