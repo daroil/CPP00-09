@@ -19,7 +19,6 @@ void	sedding(std::string stringToRep, std::string stringToKeep, std::string *fil
 	i = (*fileContent).find(stringToRep);
 	while(i != -1)
 	{
-		// std::cout << "i = " << i << std::endl;
 		(*fileContent).erase(i, stringToRep.length());
 		(*fileContent).insert(i, stringToKeep);
 		i = (*fileContent).find(stringToRep);
@@ -49,9 +48,7 @@ int	main(int argc, char **argv)
 	char			c;
 	while(infile.get(c))
 		fileContent.push_back(c);
-	// std::cout << std::endl << fileContent;
 	sedding(stringToRep, stringToKeep, &fileContent);
-	// std::cout << std::endl << fileContent;
 	outfile << fileContent;
 	infile.close();
 	outfile.close();
