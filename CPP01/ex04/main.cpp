@@ -29,11 +29,22 @@ void	sedding(std::string *stringToRep, std::string *stringToKeep, std::string *f
 
 int	main(int argc, char **argv)
 {
+	if (argc != 4)
+	{
+		std::cout << "usage ./<programName> <fileName> <stringToRep> <stringToKeep>" << std::endl;
+		return (1);
+	}
+	
 	std::ifstream	infile(argv[1]);
+	std::string		stringToRep = argv[2];
+	std::string		stringToKeep = argv[3];
+	if (!infile.good())
+	{
+		std::cout << "usage ./<programName> <fileName> <stringToRep> <stringToKeep>" << std::endl;
+		return (1);
+	}
 	std::ofstream	outfile(std::string(argv[1]) + ".replace");
 	std::string		fileContent;
-	std::string		stringToRep = "name";
-	std::string		stringToKeep = "OK";
 	char			c;
 	while(infile.get(c))
 	{
