@@ -11,9 +11,40 @@
 /* ************************************************************************** */
 
 #include <iostream>
+#include <fstream>
+
+void	sedding(std::string *stringToRep, std::string *stringToKeep, std::string *fileContent)
+{
+	int	i = 0;
+	i = (*fileContent).find((*stringToRep));
+	while(i != -1)
+	{
+		std::cout << "i = " << i << std::endl;
+		(*fileContent).erase(i, (*stringToRep).length());
+		(*fileContent).insert(i, (*stringToKeep));
+		i = (*fileContent).find((*stringToRep));
+	}
+
+}
 
 int	main(int argc, char **argv)
 {
-	
+	std::ifstream	infile(argv[1]);
+	std::ofstream	outfile(std::string(argv[1]) + ".replace");
+	std::string		fileContent;
+	std::string		stringToRep = "name";
+	std::string		stringToKeep = "OK";
+	char			c;
+	while(infile.get(c))
+	{
+		std::cout << c;
+		fileContent.push_back(c);
+	}
+	std::cout << std::endl << fileContent;
+	sedding(&stringToRep, &stringToKeep, &fileContent);
+	std::cout << std::endl << fileContent;
+	outfile << fileContent;
+	infile.close();
+	outfile.close();
 	return (0);
 }
