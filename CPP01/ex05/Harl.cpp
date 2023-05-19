@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 22:55:39 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/05/19 23:18:40 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/05/19 23:20:05 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Harl::~Harl() {}
 
 void	Harl::complain(std::string level)
 {
-	void (Harl::*function[]) (void) = {&Harl::info, &Harl::warning, &Harl::error, &Harl::debug};
+	void (Harl::*function[]) (void) = {&Harl::_info, &Harl::_warning, &Harl::_error, &Harl::_debug};
 	std::string levels[] = {"info", "warning", "error", "debug"};
 	for (int i = 0; i < 4; i++)
 	{
@@ -32,22 +32,22 @@ void	Harl::complain(std::string level)
 	
 }
 
-void	Harl::warning(void)
+void	Harl::_warning(void)
 {
 	std::cout << "warning " << std::endl;
 }
 
-void	Harl::info(void)
+void	Harl::_info(void)
 {
 	std::cout << "info " << std::endl;
 }
 
-void	Harl::debug(void)
+void	Harl::_debug(void)
 {
 	std::cout << "debug " << std::endl;
 }
 
-void	Harl::error(void)
+void	Harl::_error(void)
 {
 	std::cout << "error! " << std::endl;
 }

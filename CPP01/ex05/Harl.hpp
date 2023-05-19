@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 22:55:34 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/05/19 23:12:17 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/05/19 23:19:43 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ class Harl
 		~Harl();
 		void	complain(std::string level);
 	private:
-		void	debug(void);
-		void	info(void);
-		void	warning(void);
-		void	error(void);
+		void	_debug(void);
+		void	_info(void);
+		void	_warning(void);
+		void	_error(void);
 };
 
 #endif
