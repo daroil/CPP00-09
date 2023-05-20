@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 13:10:55 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/05/16 16:44:12 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/05/19 14:19:59 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,11 @@ void	sedding(std::string stringToRep, std::string stringToKeep, std::string *fil
 		(*fileContent).insert(i, stringToKeep);
 		i = (*fileContent).find(stringToRep);
 	}
-
 }
 
 void	errorMessage(std::string message)
 {
-		std::cout << message << std::endl <<"usage ./<programName> <fileName> <stringToRep> <stringToKeep>" << std::endl;
-
+	std::cout << message << std::endl <<"usage ./<programName> <fileName> <stringToRep> <stringToKeep>" << std::endl;
 }
 
 int	main(int argc, char **argv)

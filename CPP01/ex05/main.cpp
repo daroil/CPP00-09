@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 13:10:55 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/05/19 23:18:49 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/05/20 06:54:15 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 {
 	Harl harl;
 
-	harl.complain("info");
+	harl.complain("info"  );
 	harl.complain("error");
 	harl.complain("debug");
 	harl.complain("warning");
