@@ -23,6 +23,8 @@ class Fixed
 	public:
 		Fixed();
 		~Fixed();
+		Fixed &operator=(Fixed &fixed);
+		Fixed(Fixed &fixed);
 		void	display(void);
 		int		getRawBits(void);
 		void	setRawBits(int const raw);

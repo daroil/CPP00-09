@@ -19,7 +19,20 @@ Fixed::Fixed() : _integer(0)
 
 Fixed::~Fixed() 
 {
-	std::cout << "Default destgructor called" << std::endl;
+	std::cout << "Destructor called" << std::endl;
+}
+
+Fixed::Fixed(Fixed &fixed)
+{
+	std::cout << "Copy constructor called" << std::endl;
+	*this = fixed;
+}
+
+Fixed	&Fixed::operator=(Fixed &fixed)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	this->_integer = fixed.getRawBits();
+	return (*this);
 }
 
 void	Fixed::display(void)
