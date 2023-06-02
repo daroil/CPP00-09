@@ -17,5 +17,8 @@ int	main(int argc, char **argv)
 	Fixed	fix;
 
 	fix.display();
+	std::cout << fix.getRawBits() << std::endl;
+	fix.setRawBits(2);
+	std::cout << fix.getRawBits() << std::endl;
 	return (0);
 }

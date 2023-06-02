@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+				/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
@@ -23,9 +23,12 @@ class Fixed
 	public:
 		Fixed();
 		~Fixed();
-		void	display();
+		void	display(void);
+		int		getRawBits(void);
+		void	setRawBits(int const raw);
 	private:
-		int	_integer;
+		int					_integer;
+		static const int	_fractBits = 8;
 };
 
 #endif

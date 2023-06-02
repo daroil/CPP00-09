@@ -12,11 +12,29 @@
 
 #include "Fixed.hpp"
 
-Fixed::Fixed() : _integer(0) {}
+Fixed::Fixed() : _integer(0) 
+{
+	std::cout << "Default constructor called" << std::endl;
+}
 
-Fixed::~Fixed() {}
+Fixed::~Fixed() 
+{
+	std::cout << "Default destgructor called" << std::endl;
+}
 
 void	Fixed::display(void)
 {
 	std::cout << _integer << std::endl;
+}
+
+void	Fixed::setRawBits(int const raw)
+{
+	_integer = raw;
+	std::cout << "setRawBits member function called" << std::endl;
+}
+
+int	Fixed::getRawBits(void)
+{
+	std::cout << "getRawBits member function called" << std::endl;
+	return (_integer);
 }
