@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 13:10:55 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/04 14:47:07 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/04 16:21:38 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,12 @@ int main( void )
 
 	a = Fixed(1234.4321f);
 
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
 	std::cout << "d is " << d << std::endl;
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	std::cout << "a is " << a << std::endl;
+	std::cout << "d + a is " << d + a << std::endl;
+	std::cout << "d - a is " << d - a << std::endl;
+	std::cout << "a / d is " << a / d << std::endl;
+	std::cout << "a * d is " << a * d << std::endl;
 	// a = Fixed(0);
 	// for (int i =0; i < 1000; i++)
 	// {
