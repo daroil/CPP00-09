@@ -21,16 +21,25 @@
 class Fixed
 {
 	public:
-		Fixed();
-		~Fixed();
-		Fixed &operator=(Fixed &fixed);
-		Fixed(Fixed &fixed);
+		Fixed(void);
+		~Fixed(void);
+		Fixed &operator=(Fixed const &fixed);
+		Fixed(Fixed const &fixed);
+
+		Fixed(float const value);
+		Fixed(int const value);
+		
+		float	toFloat(void) const;
+		int		toInt(void) const;
+		
 		void	display(void);
-		int		getRawBits(void);
+		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 	private:
 		int					_integer;
 		static const int	_fractBits = 8;
 };
+
+std::ostream&	operator<<(std::ostream &os, Fixed const &fixed);
 
 #endif
