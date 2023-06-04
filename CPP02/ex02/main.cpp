@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 13:10:55 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/04 16:21:38 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/04 19:52:53 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,18 @@ int main( void )
 	std::cout << "d - a is " << d - a << std::endl;
 	std::cout << "a / d is " << a / d << std::endl;
 	std::cout << "a * d is " << a * d << std::endl;
+	std::cout << "before a++ is " << a++ << std::endl;
+	std::cout << "after a++ is " << a << std::endl;
+	std::cout << "before a-- is " << a-- << std::endl;
+	std::cout << "after a-- is " << a << std::endl;
+	std::cout << "before ++a is " << ++a << std::endl;
+	std::cout << "after ++a is " << a << std::endl;
+	std::cout << "before --a is " << --a << std::endl;
+	std::cout << "after --a is " << a << std::endl;
+	std::cout << "min a b" << Fixed::min(a, b) << std::endl;
+	std::cout << "max a b" << Fixed::max(a, b) << std::endl;
+	// std::cout << "min a b" << a == b << std::endl;
+	// std::cout << "min a b" << a != b << std::endl;
 	// a = Fixed(0);
 	// for (int i =0; i < 1000; i++)
 	// {

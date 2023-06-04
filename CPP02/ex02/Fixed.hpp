@@ -21,24 +21,48 @@
 class Fixed
 {
 	public:
+
+		//constructors
 		Fixed(void);
 		~Fixed(void);
-		Fixed &operator=(Fixed const &fixed);
-		Fixed operator+(Fixed const &fixed) const; 
-		Fixed operator-(Fixed const &fixed) const; 
-		Fixed operator*(Fixed const &fixed) const; 
-		Fixed operator/(Fixed const &fixed) const; 
 		Fixed(Fixed const &fixed);
-
 		Fixed(float const value);
 		Fixed(int const value);
+
+		//bool operators
+		bool	operator<(Fixed const &fixed) const; 
+		bool	operator<=(Fixed const &fixed) const; 
+		bool	operator>(Fixed const &fixed) const; 
+		bool	operator>=(Fixed const &fixed) const; 
+		bool	operator==(Fixed const &fixed) const; 
+		bool	operator!=(Fixed const &fixed) const; 
 		
-		float	toFloat(void) const;
-		int		toInt(void) const;
+		//num operators
+		Fixed	&operator=(Fixed const &fixed);
+		Fixed	operator+(Fixed const &fixed) const; 
+		Fixed	operator-(Fixed const &fixed) const; 
+		Fixed	operator*(Fixed const &fixed) const; 
+		Fixed	operator/(Fixed const &fixed) const; 
 		
+		//increment operator
+		Fixed	&operator++(void);
+		Fixed	operator++(int);
+		Fixed	&operator--(void);
+		Fixed	operator--(int);
+
+		//auxiliary
+		static Fixed		&min(Fixed &f1, Fixed &f2);
+		static Fixed const	&min(Fixed const &f1, Fixed const &f2);
+		static Fixed		&max(Fixed &f1, Fixed &f2);
+		static Fixed const	&max(Fixed const &f1, Fixed const &f2);
 		void	display(void);
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
+		
+		//converting		
+		float	toFloat(void) const;
+		int		toInt(void) const;
+	
 	private:
 		int					_integer;
 		static const int	_fractBits = 8;
