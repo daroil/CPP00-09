@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/10 13:10:55 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/05 12:43:32 by dhendzel         ###   ########.fr       */
+/*   Created: 2023/06/05 12:46:33 by dhendzel          #+#    #+#             */
+/*   Updated: 2023/06/05 12:58:40 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-int main( void ) 
+ScavTrap::ScavTrap(void) : ClapTrap()
 {
-	ClapTrap	bot3;
-	ClapTrap	bot("bot");
-	ClapTrap	bot2("Vanya");
-	std::cout << bot.getName() << std::endl;
-	for (int i = 0; i < 15; i++)
-		bot.trueAttack(&bot2);
-	bot3.trueAttack(&bot2);
-	return (0);
+	std::cout << "Assembling the ClapTrap without name" << std::endl;
+}
+
+ScavTrap::~ScavTrap(void) 
+{
+	std::cout << "Dissassembling the ClapTrap" << std::endl;
 }

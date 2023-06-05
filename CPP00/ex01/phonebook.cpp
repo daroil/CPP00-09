@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 02:53:58 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/04 15:33:30 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/05 15:32:42 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ const std::string	Phonebook::getInput(int curCase, const std::string prompt)
 	std::string	input;
 	while (1)
 	{
-		if (!std::getline(std::cin,input) || std::cin.eof()) { 
+		if (std::cin.eof()) { 
 			std::cout << "Goodbye" << std::endl;
 			exit(0);
 		}
