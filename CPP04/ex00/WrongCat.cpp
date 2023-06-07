@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 16:20:12 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/07 16:55:45 by dhendzel         ###   ########.fr       */
+/*   Created: 2023/06/07 16:50:54 by dhendzel          #+#    #+#             */
+/*   Updated: 2023/06/07 16:57:44 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#include "WrongCat.hpp"
 
-#include <iostream>
-#include <fstream>
-#include <cctype>
-#include <iomanip>
-#include "Animal.hpp"
-
-class Cat : public Animal
+WrongCat::WrongCat(void) : WrongAnimal()
 {
-	public:
-		Cat(void);
-		~Cat();
-	protected:
-};
+	this->_type = "Cat";
+	std::cout << "The homunculus turn into Wrong cat" << std::endl;
+}
 
-
-#endif
+WrongCat::~WrongCat(void) 
+{
+	std::cout << "The (Wrong) Cat degrades(Is he, though?) into a homunculus" << std::endl;
+}

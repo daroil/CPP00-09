@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 16:20:12 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/07 16:55:45 by dhendzel         ###   ########.fr       */
+/*   Created: 2023/06/07 16:50:55 by dhendzel          #+#    #+#             */
+/*   Updated: 2023/06/07 16:55:53 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
 #include <iostream>
 #include <fstream>
 #include <cctype>
 #include <iomanip>
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class Cat : public Animal
+class WrongCat : public WrongAnimal
 {
 	public:
-		Cat(void);
-		~Cat();
+		WrongCat(void);
+		~WrongCat();
 	protected:
 };
 

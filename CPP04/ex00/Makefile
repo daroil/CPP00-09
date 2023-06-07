@@ -6,7 +6,7 @@
 #    By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 13:15:16 by dhendzel          #+#    #+#              #
-#    Updated: 2023/06/07 16:42:30 by dhendzel         ###   ########.fr        #
+#    Updated: 2023/06/07 16:57:07 by dhendzel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,9 @@ CC = c++ -Wall -Wextra -Werror -std=c++98
 
 SRC := main.cpp \
 		Animal.cpp \
+		WrongAnimal.cpp \
 		Dog.cpp \
+		WrongCat.cpp \
 		Cat.cpp
 		
 NAME := ex00
