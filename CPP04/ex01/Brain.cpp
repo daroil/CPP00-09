@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 17:07:58 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/09 13:55:08 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/09 14:36:37 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ Brain & Brain::operator=(const Brain &assign)
 {
 	for (int i = 0; i < 100; i++)
 		ideas[i] = assign.ideas[i];
-	// ideas[100] = assign.ideas[100];
 	return *this;
 }
  

@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 16:20:12 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/09 13:45:06 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/09 14:56:51 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Cat : public Animal
 {
 	public:
 		Cat(void);
-		~Cat();
+		virtual ~Cat();
 		Cat(const Cat &copy);
 		Cat & operator=(const Cat &assign);
 	private:

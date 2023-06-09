@@ -6,38 +6,38 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 16:20:14 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/09 13:56:04 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/09 14:58:32 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(void) : Animal()
+Dog::Dog(void) : Animal(), _brain(new Brain())
 {
 	this->_type = "Dog";
-	_brain = new Brain;
+	for (int i = 0; i < 100; i++)
+		_brain->ideas[i] = "Bark Bark!";
+	// _brain = new Brain;
 	std::cout << "The homunculus turn into Dog" << std::endl;
 }
 
-Dog::Dog(const Dog &copy) : Animal()
+Dog::Dog(const Dog &copy) : Animal(), _brain(new Brain())
 {
-	_type = copy._type;
+	// *this->_brain = *copy->_brain;
+	// _type = copy._type;
+	*this = copy;
 	std::cout << "\e[0;33mCopy Constructor called of Animal\e[0m" << std::endl;
 }
 // Operators
 Dog & Dog::operator=(const Dog &assign)
 {
 	_type = assign._type;
+	*this->_brain = *assign._brain;
 	return *this;
 }
-
-// Dog::Dog(std::string name)
-// {
-// 	std::cout << "Assembling the Animal" << std::endl;
-// }
 
 Dog::~Dog(void) 
 {
 	std::cout << "The Dog degrades into a homunculus" << std::endl;
-	delete _brain;
+	delete this->_brain;
 }
