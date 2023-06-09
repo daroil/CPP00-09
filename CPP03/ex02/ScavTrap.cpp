@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 12:46:33 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/05 16:11:00 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/09 12:30:07 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
 	std::cout << "Assembling the ScavTrap" << std::endl;
+}
+
+ScavTrap::ScavTrap(ScavTrap const &ScavTrap) : ClapTrap( obj )
+{
+	std::cout << "Copy constructor called" << std::endl;
+	*this = ScavTrap;
 }
 
 ScavTrap::~ScavTrap(void) 

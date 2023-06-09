@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 20:06:34 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/05 15:59:24 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/09 12:26:09 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ ClapTrap::ClapTrap(void) : _hitPoints(10), _energyPoints(10), _attackDamage(1), 
 ClapTrap::ClapTrap(std::string name) : _hitPoints(10), _energyPoints(10), _attackDamage(1), _name(name)
 {
 	std::cout << "Assembling the ClapTrap" << std::endl;
+}
+
+ClapTrap::ClapTrap(ClapTrap const &ClapTrap)
+{
+	std::cout << "Copy constructor called" << std::endl;
+	*this = ClapTrap;
 }
 
 ClapTrap::~ClapTrap(void) 

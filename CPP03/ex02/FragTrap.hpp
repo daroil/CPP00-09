@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 16:15:44 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/05 16:18:45 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/09 12:29:32 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class FragTrap : public ClapTrap
 		~FragTrap();
 		FragTrap(void);
 		FragTrap(std::string name);
+		FragTrap(FragTrap const &FragTrap);
 		void		attack(const std::string &target);
 		void		trueAttack(ClapTrap *target);
 		void		highFiveGuys(void);
