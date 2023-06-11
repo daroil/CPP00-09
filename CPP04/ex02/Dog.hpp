@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 16:20:15 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/09 14:53:55 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/11 12:45:14 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Dog : public Animal
 		virtual ~Dog();
 		Dog(const Dog &copy);
 		Dog & operator=(const Dog &assign);
+		void	makeSound(void);
 	private:
 		Brain* _brain;
 };

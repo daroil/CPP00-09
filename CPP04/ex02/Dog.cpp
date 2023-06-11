@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 16:20:14 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/09 14:58:32 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/11 12:46:04 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,14 @@ Dog::~Dog(void)
 {
 	std::cout << "The Dog degrades into a homunculus" << std::endl;
 	delete this->_brain;
+}
+
+void	Dog::makeSound(void)
+{
+	if (_type == "Dog")
+		std::cout << "Bark!" << std::endl;
+	else if (_type == "Cat")
+		std::cout << "Meow!" << std::endl;
+	else
+		std::cout << "Random gibberish!" << std::endl;
 }

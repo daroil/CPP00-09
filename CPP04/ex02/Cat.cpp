@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 16:20:11 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/09 14:58:09 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/11 12:45:59 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,14 @@ Cat::~Cat(void)
 {
 	std::cout << "The Cat degrades into a homunculus" << std::endl;
 	delete this->_brain;
+}
+
+void	Cat::makeSound(void)
+{
+	if (_type == "Dog")
+		std::cout << "Bark!" << std::endl;
+	else if (_type == "Cat")
+		std::cout << "Meow!" << std::endl;
+	else
+		std::cout << "Random gibberish!" << std::endl;
 }

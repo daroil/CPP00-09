@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 16:20:12 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/09 14:56:51 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/11 12:45:20 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Cat : public Animal
 		virtual ~Cat();
 		Cat(const Cat &copy);
 		Cat & operator=(const Cat &assign);
+		void	makeSound(void);
 	private:
 		Brain* _brain;
 };
