@@ -13,8 +13,8 @@ int main(int argc, char **argv)
 		{
 			for (size_t j = 0; j < std::strlen(argv[i]); j++)
 				std::cout << (ch = toupper(argv[i][j]));
-			if (argv[i + 1])
-				std::cout << " ";
+			// if (argv[i + 1])
+			// 	std::cout << " ";
 		}
 		std::cout << std::endl;
     }
