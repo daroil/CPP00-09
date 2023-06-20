@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 13:10:55 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/09 15:01:28 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/09 15:20:08 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int main( void )
 	Dog		fifth;
 	Dog		fifth1;
 	fifth = Dog(fifth1);
+	fifth = fifth1;
 	delete first;
 	delete second;
 	delete third;

@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:33:40 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/20 15:29:08 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:33:20 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class AMateria
 	public:
 		// Constructors
 		// AMateria();
-		// AMateria(const AMateria &copy);
+		AMateria(const AMateria &copy);
 		AMateria(std::string const  &type);
 		
 		// Destructor

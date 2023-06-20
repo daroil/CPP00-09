@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:33:31 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/20 15:29:24 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:33:13 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,14 @@
 // 	std::cout << "\e[0;33mDefault Constructor called of AMateria\e[0m" << std::endl;
 // }
 
-// AMateria::AMateria(const AMateria &copy)
-// {
-// 	_type = copy.getType();
-// 	std::cout << "\e[0;33mCopy Constructor called of AMateria\e[0m" << std::endl;
-// }
+AMateria::AMateria(const AMateria &copy)
+{
+	_type = copy.getType();
+	std::cout << "\e[0;33mCopy Constructor called of AMateria\e[0m" << std::endl;
+}
 
 AMateria::AMateria(std::string const  &type)
 {
-	// _type = type.substr(0, type.length());
 	_type = type;
 	std::cout << "\e[0;33mFields Constructor called of AMateria\e[0m" << std::endl;
 }

@@ -6,10 +6,9 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 16:08:09 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/07 16:34:39 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/09 13:21:31 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP

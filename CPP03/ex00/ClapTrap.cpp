@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 20:06:34 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/09 12:26:09 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/09 12:40:13 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,15 @@ ClapTrap::ClapTrap(ClapTrap const &ClapTrap)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = ClapTrap;
+}
+
+ClapTrap &ClapTrap::operator=( ClapTrap const &instance) {
+	this->_name = instance._name;
+	this->_hitPoints = instance._hitPoints;
+	this->_energyPoints = instance._energyPoints;
+	this->_attackDamage = instance._attackDamage;
+	std::cout << "Copy assignment operator called" << std::endl;
+	return (*this);
 }
 
 ClapTrap::~ClapTrap(void) 

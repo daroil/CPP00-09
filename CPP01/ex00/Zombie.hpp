@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 13:15:29 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/05/10 14:16:34 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/06 17:48:19 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Zombie
 {
 	public:
 		~Zombie(void);
+		Zombie(void);
 		Zombie(const std::string name);
 		void				announce(void);
 	private:

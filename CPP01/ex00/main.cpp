@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 13:10:55 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/05/10 14:19:36 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/06 17:48:05 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int	main()
 {
 	Zombie chel("Jack");
+	Zombie chelasd;
+
 	Zombie *newZ;
 	newZ = newZombie("Brandon");
 	newZ->announce();

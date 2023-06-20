@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:33:55 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/20 15:31:14 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:32:49 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 Ice::Ice() : AMateria("ice")
 {
-	// _type = type.substr(0, type.length());
-	// _type = type;
 	std::cout << "\e[0;33mFields Constructor called of Ice\e[0m" << std::endl;
 }
 
