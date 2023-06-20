@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:33:56 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/20 14:59:53 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:30:17 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Ice : public AMateria
 	public:
 		// Constructors
 		// Ice();
-		// Ice(const AMateria &copy);
-		Ice(std::string const  &type);
+		Ice(const Ice &copy);
+		Ice();
 		
 		// Destructor
 		virtual ~Ice();

@@ -6,19 +6,24 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:33:55 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/20 15:08:00 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:31:14 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice(std::string const  &type) : AMateria(type)
+Ice::Ice() : AMateria("ice")
 {
 	// _type = type.substr(0, type.length());
 	// _type = type;
 	std::cout << "\e[0;33mFields Constructor called of Ice\e[0m" << std::endl;
 }
 
+Ice::Ice(const Ice &copy) : AMateria("ice")
+{
+	_type = copy.getType();
+	std::cout << "\e[0;33mCopy Constructor called of Ice\e[0m" << std::endl;
+}
 
 // Destructor
 Ice::~Ice()
@@ -36,6 +41,6 @@ Ice & Ice::operator=(const Ice &assign)
 
 AMateria* Ice::clone(void) const
 {
-	return (new Ice("ice"));
+	return (new Ice());
 }
 

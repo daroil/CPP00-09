@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:33:53 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/20 15:10:30 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:32:01 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Cure : public AMateria
 	public:
 		// Constructors
 		// Cure();
-		// Cure(const AMateria &copy);
-		Cure(std::string const  &type);
+		Cure(const Cure &copy);
+		Cure();
 		
 		// Destructor
 		virtual ~Cure();

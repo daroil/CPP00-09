@@ -6,17 +6,23 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:33:50 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/20 15:10:05 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:31:46 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure(std::string const  &type) : AMateria(type)
+Cure::Cure() : AMateria("cure")
 {
 	// _type = type.substr(0, type.length());
 	// _type = type;
 	std::cout << "\e[0;33mFields Constructor called of Cure\e[0m" << std::endl;
+}
+
+Cure::Cure(const Cure &copy) : AMateria("cure")
+{
+	_type = copy.getType();
+	std::cout << "\e[0;33mCopy Constructor called of Cure\e[0m" << std::endl;
 }
 
 
@@ -36,5 +42,5 @@ Cure & Cure::operator=(const Cure &assign)
 
 AMateria* Cure::clone(void) const
 {
-	return (new Cure("cure"));
+	return (new Cure());
 }

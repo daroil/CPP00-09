@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:33:31 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/06/20 15:06:36 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:29:24 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
 // AMateria::AMateria(const AMateria &copy)
 // {
 // 	_type = copy.getType();
-// 	_clone() const = copy.getClone() const();
-// 	_use(ICharacter &target) = copy.getUse(ICharacter &target)();
 // 	std::cout << "\e[0;33mCopy Constructor called of AMateria\e[0m" << std::endl;
 // }
 
