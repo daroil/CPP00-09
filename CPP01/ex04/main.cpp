@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 13:10:55 by dhendzel          #+#    #+#             */
-/*   Updated: 2023/05/19 14:19:59 by dhendzel         ###   ########.fr       */
+/*   Updated: 2023/06/24 16:58:54 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,14 @@
 
 void	sedding(std::string stringToRep, std::string stringToKeep, std::string *fileContent)
 {
-	int	i = 0;
-	i = (*fileContent).find(stringToRep);
-	while(i != -1)
+	size_t	i = 0;
+	size_t	stringLength = stringToKeep.length();
+	i = (*fileContent).find(stringToRep, i);
+	while((i = (*fileContent).find(stringToRep, i)) != std::string::npos)
 	{
 		(*fileContent).erase(i, stringToRep.length());
 		(*fileContent).insert(i, stringToKeep);
-		i = (*fileContent).find(stringToRep);
+		i += stringLength;
 	}
 }
 
@@ -37,10 +38,10 @@ int	main(int argc, char **argv)
 	std::ifstream	infile(argv[1]);
 	std::string		stringToRep = argv[2];
 	std::string		stringToKeep = argv[3];
-	if (!infile.good())
-		return (errorMessage("can't open file"), 1);
 	if (!stringToRep.length() || !stringToKeep.length())
 		return (errorMessage("wrong arguements"), 1);
+	if (!infile.good())
+		return (errorMessage("can't open file"), 1);
 	std::ofstream	outfile(std::string(argv[1]) + ".replace");
 	std::string		fileContent;
 	char			c;
