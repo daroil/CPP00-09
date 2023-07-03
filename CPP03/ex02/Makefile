@@ -6,7 +6,7 @@
 #    By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 13:15:16 by dhendzel          #+#    #+#              #
-#    Updated: 2023/06/05 16:17:19 by dhendzel         ###   ########.fr        #
+#    Updated: 2023/07/03 15:56:43 by dhendzel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRC := main.cpp \
 		ScavTrap.cpp \
 		FragTrap.cpp
 
-NAME := ex01
+NAME := ex02
 
 OBJ	= $(SRC:.cpp=.o)
 
