@@ -73,3 +73,8 @@ Cat::~Cat(void)
 	std::cout << "The Cat degrades into a homunculus" << std::endl;
 	delete this->_brain;
 }
+
+void	Cat::makeSound(void) const
+{
+    std::cout << "Meow from child!" << std::endl;
+}

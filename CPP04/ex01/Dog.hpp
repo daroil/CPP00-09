@@ -27,6 +27,7 @@ class Dog : public Animal
 		virtual ~Dog();
 		Dog(const Dog &copy);
 		Dog & operator=(const Dog &assign);
+        void	makeSound(void) const;
 	private:
 		Brain* _brain;
 };

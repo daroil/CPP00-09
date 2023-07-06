@@ -31,6 +31,7 @@ Dog::Dog(const Dog &copy) : Animal(), _brain(new Brain())
 // Operators
 Dog & Dog::operator=(const Dog &assign)
 {
+	std::cout << "\e[0;33mCopy assignment operator called of Animal\e[0m" << std::endl;
 	_type = assign._type;
 	*this->_brain = *assign._brain;
 	return *this;
@@ -40,4 +41,9 @@ Dog::~Dog(void)
 {
 	std::cout << "The Dog degrades into a homunculus" << std::endl;
 	delete this->_brain;
+}
+
+void	Dog::makeSound(void) const
+{
+    std::cout << "Bark from child!" << std::endl;
 }

@@ -27,6 +27,7 @@ class Cat : public Animal
 		virtual ~Cat();
 		Cat(const Cat &copy);
 		Cat & operator=(const Cat &assign);
+        void	makeSound(void) const;
 	private:
 		Brain* _brain;
 };
