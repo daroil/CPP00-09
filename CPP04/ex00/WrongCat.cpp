@@ -14,11 +14,29 @@
 
 WrongCat::WrongCat(void) : WrongAnimal()
 {
-	this->_type = "Cat";
-	std::cout << "The homunculus turn into Wrong cat" << std::endl;
+    this->_type = "WrongCat";
+    std::cout << "The homunculus turn into WrongCat" << std::endl;
 }
 
-WrongCat::~WrongCat(void) 
+WrongCat::WrongCat(const WrongCat &WrongCat)
 {
-	std::cout << "The (Wrong) Cat degrades(Is he, though?) into a homunculus" << std::endl;
+    this->_type = WrongCat._type;
+    std::cout << "Copy constructor called" << std::endl;
+}
+
+WrongCat &WrongCat::operator=(const WrongCat &obj)
+{
+    this->_type = obj._type;
+    std::cout << "Copy assignment operator called" << std::endl;
+    return(*this);
+}
+
+void	WrongCat::makeSound(void) const
+{
+    std::cout << "Wrong Meow from child!" << std::endl;
+}
+
+WrongCat::~WrongCat(void)
+{
+    std::cout << "The WrongCat degrades into a homunculus" << std::endl;
 }

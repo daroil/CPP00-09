@@ -23,8 +23,11 @@
 class Dog : public Animal
 {
 	public:
-		Dog(void);
-		~Dog();
+        Dog(void);
+        ~Dog();
+        Dog(Dog const &Dog);
+        Dog &operator=( Dog const &obj );
+        void	makeSound(void) const;
 	protected:
 };
 

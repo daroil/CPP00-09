@@ -18,23 +18,30 @@
 
 int main( void ) 
 {
-	Animal* first = new Animal();
-	Animal* second = new Cat();
-	Animal* third = new Dog();
-	Cat		fourth;
-	Dog		fifth;
-	WrongAnimal* firstwrong = new WrongAnimal();
-	WrongAnimal* secondwrong = new WrongCat();
+	Animal*         first = new Animal();
+	Animal*         second = new Cat();
+	Animal*         third = new Dog();
+	Cat		        fourth;
+	Dog		        fifth;
+	WrongAnimal*    firstwrong = new WrongAnimal();
+	WrongAnimal*    secondwrong = new WrongCat();
 	WrongCat		fourthwrong;
-	// second->displayType();
-	// third.displayType();
-	first->makeSound();
-	second->makeSound();
-	firstwrong->makeSound();
-	secondwrong->makeSound();
-	third->makeSound();
-	fourth.makeSound();
-	fourthwrong.makeSound();
-	fifth.makeSound();
+
+    second->displayType();
+    third->displayType();
+    first->makeSound();
+    second->makeSound();
+    firstwrong->makeSound();
+    secondwrong->makeSound();
+    third->makeSound();
+    fourth.makeSound();
+    fifth.makeSound();
+    fourthwrong.makeSound();
+
+    delete first;
+    delete second;
+    delete third;
+    delete firstwrong;
+    delete secondwrong;
 	return (0);
 }

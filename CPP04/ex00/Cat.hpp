@@ -24,6 +24,9 @@ class Cat : public Animal
 	public:
 		Cat(void);
 		~Cat();
+        Cat(Cat const &Cat);
+        Cat &operator=( Cat const &obj );
+        void	makeSound(void) const;
 	protected:
 };
 

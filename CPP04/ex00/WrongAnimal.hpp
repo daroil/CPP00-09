@@ -22,11 +22,13 @@
 class WrongAnimal
 {
 	public:
-		WrongAnimal(void);
-		~WrongAnimal();
-		void	makeSound(void);
+        WrongAnimal(void);
+        ~WrongAnimal();
+        WrongAnimal(WrongAnimal const &WrongAnimal);
+        WrongAnimal &operator=(WrongAnimal const &copy);
+        virtual void	makeSound(void) const;
 	protected:
-		std::string _type;
+        std::string _type;
 };
 
 

@@ -22,9 +22,13 @@
 class WrongCat : public WrongAnimal
 {
 	public:
-		WrongCat(void);
-		~WrongCat();
+        WrongCat(void);
+        ~WrongCat();
+        WrongCat(WrongCat const &WrongCat);
+        WrongCat &operator=( WrongCat const &obj );
+        void	makeSound(void) const;
 	protected:
+
 };
 
 

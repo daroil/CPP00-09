@@ -14,12 +14,29 @@
 
 Dog::Dog(void) : Animal()
 {
-	this->_type = "Dog";
-	std::cout << "The homunculus turn into Dog" << std::endl;
+    this->_type = "Dog";
+    std::cout << "The homunculus turn into Dog" << std::endl;
 }
 
-Dog::~Dog(void) 
+Dog::Dog(const Dog &Dog)
 {
-	std::cout << "The Dog degrades into a homunculus" << std::endl;
+    this->_type = Dog._type;
+    std::cout << "Copy constructor called" << std::endl;
 }
 
+Dog &Dog::operator=(const Dog &obj)
+{
+    this->_type = obj._type;
+    std::cout << "Copy assignment operator called" << std::endl;
+    return(*this);
+}
+
+void	Dog::makeSound(void) const
+{
+    std::cout << "Bark from child!" << std::endl;
+}
+
+Dog::~Dog(void)
+{
+    std::cout << "The Dog degrades into a homunculus" << std::endl;
+}

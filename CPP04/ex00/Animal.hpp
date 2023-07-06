@@ -26,6 +26,7 @@ class Animal
 		Animal(Animal const &Animal);
 		Animal &operator=(Animal const &copy);
 		virtual void	makeSound(void) const;
+        void displayType(void);
 	protected:
 		std::string _type;
 };

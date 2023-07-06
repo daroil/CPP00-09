@@ -14,11 +14,11 @@ CC = c++ -Wall -Wextra -Werror -std=c++98
 
 SRC := main.cpp \
 		Animal.cpp \
-		WrongAnimal.cpp \
 		Dog.cpp \
+		WrongAnimal.cpp \
 		WrongCat.cpp \
-		Cat.cpp
-		
+		Cat.cpp \
+
 NAME := ex00
 
 OBJ	= $(SRC:.cpp=.o)

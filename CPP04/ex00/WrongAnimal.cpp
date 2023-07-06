@@ -12,17 +12,30 @@
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal(void) 
+WrongAnimal::WrongAnimal(void)
 {
-	std::cout << "The Animal is born without name or type, you created a random homunculus" << std::endl;
+    std::cout << "The WrongAnimal is born" << std::endl;
+    _type = "WrongAnimal";
 }
 
-WrongAnimal::~WrongAnimal(void) 
+WrongAnimal::WrongAnimal(WrongAnimal const &WrongAnimal)
 {
-	std::cout << "The Homunculus died" << std::endl;
+    std::cout << "Copy constructor called" << std::endl;
+    *this = WrongAnimal;
 }
 
-void	WrongAnimal::makeSound(void)
+WrongAnimal &WrongAnimal::operator=( WrongAnimal const &copy) {
+    this->_type = copy._type;
+    std::cout << "Copy assignment operator called" << std::endl;
+    return (*this);
+}
+
+WrongAnimal::~WrongAnimal(void)
+{
+    std::cout << "The WrongAnimal died" << std::endl;
+}
+
+void	WrongAnimal::makeSound(void) const
 {
 	if (_type == "Dog")
 		std::cout << "WrongBark!" << std::endl;
