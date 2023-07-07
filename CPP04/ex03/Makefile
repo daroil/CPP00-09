@@ -18,6 +18,7 @@ SRC := main.cpp \
 		Ice.cpp \
 		ICharacter.cpp \
 		Character.cpp \
+		MateriaSource.cpp \
 
 NAME := ex03
 

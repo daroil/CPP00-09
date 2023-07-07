@@ -42,7 +42,9 @@ AMateria::~AMateria()
 // Operators
 AMateria & AMateria::operator=(const AMateria &assign)
 {
-	_type = assign.getType();
+	if (this == &assign)
+        return(*this);
+    _type = assign.getType();
 	return *this;
 }
 

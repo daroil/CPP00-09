@@ -15,6 +15,8 @@
 #include "Cure.hpp"
 #include "ICharacter.hpp"
 #include "Character.hpp"
+#include "IMateriaSource.hpp"
+#include "MateriaSource.hpp"
 
 // void	checkleaks(void)
 // {
@@ -23,20 +25,20 @@
 
 int test()
 {
-//    IMateriaSource* src = new MateriaSource();
-//    src->learnMateria(new Ice());
-//    src->learnMateria(new Cure());
+    IMateriaSource* src = new MateriaSource();
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
 //    ICharacter* me = new Character("me");
     Character me("me");
-    AMateria* tmp = new Ice();
-//    tmp = src->createMateria("ice");
+    AMateria* tmp;
+    tmp = src->createMateria("ice");
     me.equip(tmp);
-    me.unequip(0);
     me.unequip(1);
-//    tmp = src->createMateria("cure");
-//    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me.equip(tmp);
     ICharacter* bob = new Character("bob");
     me.use(0, *bob);
+    me.unequip(0);
     me.use(1, *bob);
     delete bob;
     delete tmp;
