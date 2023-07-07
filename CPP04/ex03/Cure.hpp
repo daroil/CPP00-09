@@ -32,7 +32,8 @@ class Cure : public AMateria
 		// Operators
 		Cure & operator=(const Cure &assign);
 		AMateria* clone() const;
-	protected:
+        void use(ICharacter &target);
+protected:
 };
 
 #endif

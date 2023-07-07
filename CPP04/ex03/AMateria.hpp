@@ -10,20 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#pragma once
 
+#include "ICharacter.hpp"
 # include <iostream>
 # include <string>
+
+class ICharacter;
 
 class AMateria
 {
 	public:
 		// Constructors
-		// AMateria();
-		AMateria(const AMateria &copy);
 		AMateria(std::string const  &type);
-		
+		AMateria(const AMateria &copy);
+		// AMateria();
+
 		// Destructor
 		virtual ~AMateria();
 		
@@ -33,11 +35,9 @@ class AMateria
 		// Getters / Setters
 		std::string const  &  getType() const;
 		virtual AMateria* clone() const = 0;
-		// virtual void use(ICharacter &target);
+        virtual void use(ICharacter &target);
 		
 	protected:
 		std::string _type;
 		
 };
-
-#endif

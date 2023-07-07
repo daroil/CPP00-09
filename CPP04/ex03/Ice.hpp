@@ -22,16 +22,16 @@ class Ice : public AMateria
 {
 	public:
 		// Constructors
-		// Ice();
-		Ice(const Ice &copy);
 		Ice();
-		
+		Ice(const Ice &copy);
+
 		// Destructor
 		virtual ~Ice();
-		
+
 		// Operators
 		Ice & operator=(const Ice &assign);
 		AMateria* clone() const;
+        void use(ICharacter &target);
 	protected:
 };
 

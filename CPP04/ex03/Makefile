@@ -17,7 +17,8 @@ SRC := main.cpp \
 		Cure.cpp \
 		Ice.cpp \
 		ICharacter.cpp \
-		
+		Character.cpp \
+
 NAME := ex03
 
 OBJ	= $(SRC:.cpp=.o)

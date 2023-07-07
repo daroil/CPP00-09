@@ -25,14 +25,6 @@ Cure::Cure(const Cure &copy) : AMateria("cure")
 	std::cout << "\e[0;33mCopy Constructor called of Cure\e[0m" << std::endl;
 }
 
-
-// Destructor
-Cure::~Cure()
-{
-	std::cout << "\e[0;31mDestructor called of Cure\e[0m" << std::endl;
-}
-
-
 // Operators
 Cure & Cure::operator=(const Cure &assign)
 {
@@ -40,7 +32,18 @@ Cure & Cure::operator=(const Cure &assign)
 	return *this;
 }
 
+// Destructor
+Cure::~Cure()
+{
+	std::cout << "\e[0;31mDestructor called of Cure\e[0m" << std::endl;
+}
+
 AMateria* Cure::clone(void) const
 {
 	return (new Cure());
 }
+
+void Cure::use(ICharacter &target) {
+    std::cout << "* heals " << target.getName() << " *" << std::endl;
+}
+
