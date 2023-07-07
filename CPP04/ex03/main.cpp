@@ -28,22 +28,23 @@ int test()
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
-//    ICharacter* me = new Character("me");
-    Character me("me");
+    ICharacter* me = new Character("me");
+//    Character me("me");
     AMateria* tmp;
     tmp = src->createMateria("ice");
-    me.equip(tmp);
-    me.unequip(1);
+    std::cout << "assigned materia" << std::endl;
+    me->equip(tmp);
+    me->unequip(1);
     tmp = src->createMateria("cure");
-    me.equip(tmp);
+    me->equip(tmp);
     ICharacter* bob = new Character("bob");
-    me.use(0, *bob);
-    me.unequip(0);
-    me.use(1, *bob);
+    me->use(0, *bob);
+    me->unequip(0);
+    me->use(1, *bob);
     delete bob;
-    delete tmp;
-//    delete me;
-//    delete src;
+//    delete tmp;
+    delete me;
+    delete src;
     return(0);
 }
 
@@ -53,8 +54,8 @@ int main( void )
 	// std::string	firsttype;
 	// firsttype = "ice";
     test();
-    Ice trial;
-    Cure trial2;
-    std::cout << trial.getType() << std::endl;
-    std::cout << trial2.getType() << std::endl;
+//    Ice trial;
+//    Cure trial2;
+//    std::cout << trial.getType() << std::endl;
+//    std::cout << trial2.getType() << std::endl;
 }

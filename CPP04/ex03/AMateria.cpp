@@ -42,7 +42,8 @@ AMateria::~AMateria()
 // Operators
 AMateria & AMateria::operator=(const AMateria &assign)
 {
-	if (this == &assign)
+    std::cout << "Amateria assignment called " << std::endl;
+    if (this == &assign)
         return(*this);
     _type = assign.getType();
 	return *this;
@@ -56,5 +57,6 @@ std::string const  & AMateria::getType() const
 }
 
 void AMateria::use(ICharacter &target) {
+    (void)target;
     std::cout << "*" << std::endl;
 }

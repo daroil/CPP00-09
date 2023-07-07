@@ -11,13 +11,18 @@ MateriaSource::MateriaSource(void) : _materias(new AMateria *[4])
 
 MateriaSource::~MateriaSource()
 {
-    if (_materias)
-        delete [] _materias;
+    std::cout << "destructor of Materiasource called" << std::endl;
+    for(int i = 0; i < 4; i++)
+    {
+        if (_materias[i])
+            delete _materias[i];
+    }
+    delete [] _materias;
 };
 
 MateriaSource::MateriaSource(const MateriaSource &copy)
 {
-    std::cout << "Copy Constructor of Character called" << std::endl;
+    std::cout << "Copy Constructor of Materiasource called" << std::endl;
     *this = copy;
 };
 
@@ -28,14 +33,16 @@ AMateria** MateriaSource::cloneMaterias(void) const
     while (idx <= 3)
     {
         if (_materias[idx] != NULL)
-            newMaterias[idx] = _materias[idx];
+            newMaterias[idx] = _materias[idx]->clone();
         idx++;
     }
+    delete [] _materias;
     return (newMaterias);
 }
 
 MateriaSource & MateriaSource::operator=(const MateriaSource &assign)
 {
+    std::cout << "Assignment of materia source called" << std::endl;
     if (this != &assign)
     {
         if (_materias != NULL)
@@ -62,10 +69,10 @@ void MateriaSource::learnMateria(AMateria *materia)
 
 AMateria * MateriaSource::createMateria(const std::string &type)
 {
-    for(int i =0; i < 4; i++)
+    for(int i = 0; i < 4; i++)
     {
-        if (_materias[i]->getType() == type)
+        if (_materias[i] && _materias[i]->getType() == type)
             return (_materias[i]->clone());
     }
-    return 0;
+    return NULL;
 };

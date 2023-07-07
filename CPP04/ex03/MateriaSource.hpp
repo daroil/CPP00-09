@@ -16,8 +16,8 @@ class MateriaSource : public IMateriaSource
         ~MateriaSource();
         MateriaSource(const MateriaSource &copy);
         MateriaSource & operator=(const MateriaSource &assign);
-        void learnMateria(AMateria* materia) override;
-        AMateria * createMateria(const std::string &type) override;
+        void learnMateria(AMateria* materia);
+        AMateria * createMateria(const std::string &type);
         AMateria** cloneMaterias(void) const;
     private:
         AMateria **_materias;
