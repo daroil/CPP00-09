@@ -74,16 +74,16 @@ AMateria** Character::cloneInventory(void) const
 AMateria** Character::cloneUnequippedInventory(void) const
 {
     AMateria** newInventory = new AMateria *[_unequippedIndex];
+    for (int i = 0; i < _unequippedIndex; i++)
+        newInventory[i] = NULL;
     int idx = 0;
-    while (idx <= _unequippedIndex)
+    while (idx < _unequippedIndex)
     {
         if (_unequippedInventory[idx] != NULL)
         {
             newInventory[idx] = _unequippedInventory[idx]->clone();
             std::cout << "de equipped at slot " << idx << std::endl;
         }
-        else
-            newInventory[idx] = NULL;
         idx++;
     }
     return (newInventory);
