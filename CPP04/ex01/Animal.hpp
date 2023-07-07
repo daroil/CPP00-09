@@ -22,7 +22,7 @@ class Animal
 {
 	public:
 		Animal(void);
-		~Animal();
+		virtual ~Animal();
 		Animal(Animal const &Animal);
 		Animal &operator=(Animal const &copy);
 		virtual void	makeSound(void) const;

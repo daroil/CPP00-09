@@ -12,6 +12,12 @@
 
 #include "Dog.hpp"
 
+
+void	Dog::displayIdea(int idx)
+{
+		std::cout << _brain->ideas[idx] << std::endl;
+}
+
 Dog::Dog(void) : Animal(), _brain(new Brain())
 {
 	this->_type = "Dog";
@@ -26,12 +32,12 @@ Dog::Dog(const Dog &copy) : Animal(), _brain(new Brain())
 	// *this->_brain = *copy->_brain;
 	// _type = copy._type;
 	*this = copy;
-	std::cout << "\e[0;33mCopy Constructor called of Animal\e[0m" << std::endl;
+	std::cout << "\e[0;33mCopy Constructor called of Dog\e[0m" << std::endl;
 }
 // Operators
 Dog & Dog::operator=(const Dog &assign)
 {
-	std::cout << "\e[0;33mCopy assignment operator called of Animal\e[0m" << std::endl;
+	std::cout << "\e[0;33mCopy assignment operator called of Dog\e[0m" << std::endl;
 	_type = assign._type;
 	*this->_brain = *assign._brain;
 	return *this;

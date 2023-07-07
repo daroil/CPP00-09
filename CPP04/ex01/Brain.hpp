@@ -26,6 +26,7 @@ class Brain
 		Brain(const Brain &copy);
 		Brain & operator=(const Brain &assign);
 		std::string	ideas[100];
+		// void	displayIdea(int idx);
 	// protected:
 		// std::string _type;
 };

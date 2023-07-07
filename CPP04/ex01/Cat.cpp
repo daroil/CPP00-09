@@ -58,7 +58,7 @@ Cat::Cat(const Cat &copy) : Animal(), _brain(new Brain())
 	// *this->_brain = *copy->_brain;
 	// _type = copy._type;
 	*this = copy;
-	std::cout << "\e[0;33mCopy Constructor called of Animal\e[0m" << std::endl;
+	std::cout << "\e[0;33mCopy Constructor called of Cat\e[0m" << std::endl;
 }
 // Operators
 Cat & Cat::operator=(const Cat &assign)
