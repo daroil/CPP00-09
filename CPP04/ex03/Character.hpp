@@ -23,6 +23,7 @@ class Character : public ICharacter
         void unequip(int idx);
         void use(int idx, ICharacter& target);
         AMateria** cloneInventory(void) const;
+        AMateria** cloneUnequippedInventory(void) const;
     private:
         AMateria **_inventory;
         AMateria **_unequippedInventory;

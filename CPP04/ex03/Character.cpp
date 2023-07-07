@@ -1,7 +1,7 @@
 
 #include "Character.hpp"
 
-Character::Character(void) : _inventory(new AMateria *[4]), _unequippedIndex(1)
+Character::Character(void) : _inventory(new AMateria *[4]), _unequippedInventory(new AMateria *[1]), _unequippedIndex(1)
 {
     std::cout << "Default Constructor of Character called" << std::endl;
     for(int i = 0; i < 4; i++)
@@ -23,18 +23,27 @@ Character::Character(std::string name) : _inventory(new AMateria *[4]), _unequip
 Character::~Character()
 {
     std::cout << "Destructor of Character called" << std::endl;
-    for(int i = 0; i < 4; i++)
+    if (_inventory)
     {
-        if (_inventory[i])
-            delete _inventory[i];
+        for(int i = 0; i < 4; i++)
+        {
+            if (_inventory[i] != NULL)
+            {
+                delete _inventory[i];
+//        std::cout << "here segfault" << std::endl;
+            }
+        }
+        delete [] _inventory;
     }
-    delete [] _inventory;
-    for(int i = 0; i < _unequippedIndex; i++)
+    if (_unequippedInventory)
     {
-        if (_unequippedInventory[i])
-            delete _unequippedInventory[i];
+        for(int i = 0; i < _unequippedIndex; i++)
+        {
+            if (_unequippedInventory[i])
+                delete _unequippedInventory[i];
+        }
+        delete [] _unequippedInventory;
     }
-    delete [] _unequippedInventory;
 }
 
 
@@ -48,13 +57,33 @@ AMateria** Character::cloneInventory(void) const
 {
     AMateria** newInventory = new AMateria *[4];
     int idx = 0;
-    while (idx <= 3)
+    while (idx < 4)
     {
         if (_inventory[idx] != NULL)
         {
             newInventory[idx] = _inventory[idx]->clone();
             std::cout << "equipped at slot " << idx << std::endl;
         }
+        else
+            newInventory[idx] = NULL;
+        idx++;
+    }
+    return (newInventory);
+}
+
+AMateria** Character::cloneUnequippedInventory(void) const
+{
+    AMateria** newInventory = new AMateria *[_unequippedIndex];
+    int idx = 0;
+    while (idx <= _unequippedIndex)
+    {
+        if (_unequippedInventory[idx] != NULL)
+        {
+            newInventory[idx] = _unequippedInventory[idx]->clone();
+            std::cout << "de equipped at slot " << idx << std::endl;
+        }
+        else
+            newInventory[idx] = NULL;
         idx++;
     }
     return (newInventory);
@@ -67,8 +96,26 @@ Character & Character::operator=(const Character &assign)
     {
         this->_name = assign.getName();
         if (_inventory != NULL)
+        {
+            for(int i = 0; i < 4; i++)
+            {
+                if (_inventory[i])
+                    delete _inventory[i];
+            }
             delete [] _inventory;
+        }
         _inventory = assign.cloneInventory();
+        if (_unequippedInventory != NULL)
+        {
+            for(int i = 0; i < _unequippedIndex; i++)
+            {
+                if (_unequippedInventory[i])
+                    delete _unequippedInventory[i];
+            }
+            delete [] _unequippedInventory;
+        }
+        _unequippedInventory = assign.cloneUnequippedInventory();
+        _unequippedIndex = assign._unequippedIndex;
     }
     return *this;
 }
@@ -79,8 +126,17 @@ std::string const & Character::getName() const
 }
 void Character::equip(AMateria* m)
 {
+    for (int i = 0; i < 4; i++)
+    {
+        if (_inventory[i] == m)
+        {
+            std::cout << "this materia already equipped" << std::endl<< std::endl<< std::endl;
+            return ;
+        }
+    }
+
     int idx = 0;
-    while (idx <= 3)
+    while (idx < 4)
     {
         if (_inventory[idx] == NULL)
         {
@@ -108,7 +164,12 @@ void Character::unequip(int idx)
         tmp = _unequippedInventory;
         _unequippedInventory = new AMateria *[_unequippedIndex + 1];
         for(int i = 0; i < _unequippedIndex; i++)
-            _unequippedInventory[i] = tmp[i];
+        {
+            _unequippedInventory [i] = tmp[i];
+//            tmp [i] = _unequippedInventory[i];
+//            if (tmp[i])
+//                std::cout << std::endl << std::endl << tmp[i]->getType() << std::endl << std::endl;
+        }
         _unequippedIndex++;
         _unequippedInventory[_unequippedIndex - 1] = _inventory[idx];
         _inventory[idx] = NULL;
@@ -129,7 +190,10 @@ void Character::use(int idx, ICharacter& target)
         return ;
     }
     if (_inventory[idx])
+    {
+        std::cout << "* " << _name;
         _inventory[idx]->use(target);
+    }
     else
         std::cout << "Nothing is equipped at the index" << std::endl;
 

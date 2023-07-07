@@ -142,8 +142,50 @@ void subjectTest(void){
     delete src;
     std::cout << "Subject Test START" << std::endl << std::endl;
 }
+
+void    additionalTests()
+{
+    std::cout << "Add Test START" << std::endl;
+    IMateriaSource* src = new MateriaSource();
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
+    src->learnMateria(new Cure());
+    src->learnMateria(new Cure());
+    src->learnMateria(new Cure());
+    Character* me = new Character("me");
+//    Character* tmp1 = new Character("Ty");
+    AMateria* tmp;
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
+    me->equip(tmp);
+    Character* bob = new Character();
+//    *bob = *me;
+    me->use(0, *bob);
+//    tmp1->use(0, *bob);
+//    *bob = *tmp1;
+//    tmp1->unequip(0);
+//    tmp1->equip(tmp);
+    me->use(1, *bob);
+//    me->equip(tmp);
+//    me->equip(tmp);
+//    me->equip(tmp);
+    me->unequip(1);
+    me->unequip(0);
+    me->unequip(2);
+    me->use(1, *bob);
+//    bob->use(1, *me);
+    delete bob;
+    delete me;
+    delete src;
+//    delete tmp1;
+    std::cout << "ADD Test END" << std::endl << std::endl;
+}
+
 int main(void){
-    subjectTest();
-    customTests();
+    additionalTests();
+//    subjectTest();
+//    customTests();
     return 0;
 }
