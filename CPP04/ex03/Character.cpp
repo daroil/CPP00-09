@@ -90,11 +90,18 @@ void Character::equip(AMateria* m)
         }
         idx++;
     }
+    std::cout << "can't equip materia. Deleting" << std::endl;
+    delete m;
 //    _inventory[idx] = m;
 }
 
 void Character::unequip(int idx)
 {
+    if (idx < 0 || idx >= 4)
+    {
+        std::cout << "wrong index" << std::endl;
+        return ;
+    }
     if (_inventory[idx])
     {
         AMateria **tmp;
@@ -116,6 +123,11 @@ void Character::unequip(int idx)
 void Character::use(int idx, ICharacter& target)
 {
     std::cout << "trying to use inventory" << std::endl;
+    if (idx < 0 || idx >= 4)
+    {
+        std::cout << "wrong index" << std::endl;
+        return ;
+    }
     if (_inventory[idx])
         _inventory[idx]->use(target);
     else

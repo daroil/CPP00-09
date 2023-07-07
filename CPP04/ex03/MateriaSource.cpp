@@ -65,6 +65,8 @@ void MateriaSource::learnMateria(AMateria *materia)
         }
         idx++;
     }
+    std::cout << "can't learn materia. Deleting" << std::endl;
+    delete materia;
 }
 
 AMateria * MateriaSource::createMateria(const std::string &type)
