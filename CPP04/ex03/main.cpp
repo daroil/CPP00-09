@@ -23,43 +23,6 @@
 // 	system("leaks ex01");
 // }
 
-//int test()
-//{
-//    IMateriaSource* src = new MateriaSource();
-//    src->learnMateria(new Ice());
-//    src->learnMateria(new Cure());
-//    ICharacter* me = new Character("me");
-////    Character me("me");
-//    AMateria* tmp;
-//    tmp = src->createMateria("ice");
-//    std::cout << "assigned materia" << std::endl;
-//    me->equip(tmp);
-//    me->unequip(1);
-//    tmp = src->createMateria("cure");
-//    me->equip(tmp);
-//    ICharacter* bob = new Character("bob");
-//    me->use(0, *bob);
-//    me->unequip(0);
-//    me->use(1, *bob);
-//    delete bob;
-////    delete tmp;
-//    delete me;
-//    delete src;
-//    return(0);
-//}
-
-//int main( void )
-//{
-//	// atexit(checkleaks);
-//	// std::string	firsttype;
-//	// firsttype = "ice";
-//    test();
-////    Ice trial;
-////    Cure trial2;
-////    std::cout << trial.getType() << std::endl;
-////    std::cout << trial2.getType() << std::endl;
-//}
-
 void customTests(void){
     MateriaSource* materiaMaker = new MateriaSource();
     ICharacter* bob = new Character("bob");
@@ -143,6 +106,32 @@ void subjectTest(void){
     std::cout << "Subject Test START" << std::endl << std::endl;
 }
 
+void    shortTest()
+{
+    Character* me = new Character("me");
+    Character* tmp1 = new Character("Ty");
+    Character* bob = new Character();
+    IMateriaSource* src = new MateriaSource();
+    AMateria* tmp;
+
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
+    bob->equip(tmp);
+    me->use(0,*tmp1);
+    bob->use(0,*tmp1);
+    *bob = *me;
+    me->unequip(0);
+    bob->use(0,*tmp1);
+    me->use(0,*tmp1);
+
+    delete me;
+    delete tmp1;
+    delete bob;
+    delete src;
+}
+
 void    additionalTests()
 {
     std::cout << "Add Test START" << std::endl;
@@ -189,6 +178,7 @@ void    additionalTests()
 }
 
 int main(void){
+    shortTest();
     additionalTests();
     subjectTest();
     customTests();
