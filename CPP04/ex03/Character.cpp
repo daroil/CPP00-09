@@ -33,9 +33,9 @@ Character::Character(const Character &copy)
     *this = copy;
 }
 
-AMateria** Character::cloneInventory(void)
+AMateria** Character::cloneInventory(void) const
 {
-    AMateria** newInventory;
+    AMateria** newInventory = new AMateria *[4];
     int idx = 0;
     while (idx <= 3)
     {
@@ -51,8 +51,13 @@ AMateria** Character::cloneInventory(void)
 
 Character & Character::operator=(const Character &assign)
 {
-    this->_name = assign.getName();
-    _inventory = assign._inventory;
+    if (this != &assign)
+    {
+        this->_name = assign.getName();
+        if (_inventory != NULL)
+            delete [] _inventory;
+        _inventory = assign.cloneInventory();
+    }
     return *this;
 }
 
