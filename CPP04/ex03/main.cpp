@@ -79,6 +79,7 @@ void customTests(void){
     stackMaker.learnMateria(new Cure());
     stackMaker.learnMateria(new Cure());
 
+    std::cout << "before -" << std::endl;
     bob->equip(materiaMaker->createMateria("non")); // funcao nao gerara ponteiro valido, nada deve ser inserido
     bob->equip(materiaMaker->createMateria("ice"));
     bob->equip(materiaMaker->createMateria("cure"));
@@ -91,7 +92,6 @@ void customTests(void){
     ned.equip(stackMaker.createMateria("ice"));
     ned.equip(stackMaker.createMateria("cure"));
     ned.equip(stackMaker.createMateria("ice")); // tenta quinta inserção, não deve ser guardado.
-    std::cout << "before -" << std::endl;
     bob->use(-1, ned);
     bob->use(0, ned);
     bob->use(1, ned);
@@ -153,7 +153,7 @@ void    additionalTests()
     src->learnMateria(new Cure());
     src->learnMateria(new Cure());
     Character* me = new Character("me");
-//    Character* tmp1 = new Character("Ty");
+    Character* tmp1 = new Character("Ty");
     AMateria* tmp;
     tmp = src->createMateria("ice");
     me->equip(tmp);
@@ -163,10 +163,15 @@ void    additionalTests()
     Character* bob = new Character();
     *bob = *me;
     me->use(0, *bob);
-//    tmp1->use(0, *bob);
-//    *bob = *tmp1;
-//    tmp1->unequip(0);
-//    tmp1->equip(tmp);
+    std::cout << std::endl;
+    std::cout << std::endl;
+
+    tmp1->use(0, *bob);
+    *bob = *tmp1;
+    tmp1->unequip(0);
+    tmp1->equip(tmp);
+    std::cout << std::endl;
+    std::cout << std::endl;
     me->use(1, *bob);
     me->equip(tmp);
     me->equip(tmp);
@@ -179,13 +184,13 @@ void    additionalTests()
     delete bob;
     delete me;
     delete src;
-//    delete tmp1;
+    delete tmp1;
     std::cout << "ADD Test END" << std::endl << std::endl;
 }
 
 int main(void){
     additionalTests();
-//    subjectTest();
-//    customTests();
+    subjectTest();
+    customTests();
     return 0;
 }

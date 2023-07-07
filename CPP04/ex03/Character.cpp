@@ -28,10 +28,7 @@ Character::~Character()
         for(int i = 0; i < 4; i++)
         {
             if (_inventory[i] != NULL)
-            {
                 delete _inventory[i];
-//        std::cout << "here segfault" << std::endl;
-            }
         }
         delete [] _inventory;
     }
@@ -56,6 +53,8 @@ Character::Character(const Character &copy)
 AMateria** Character::cloneInventory(void) const
 {
     AMateria** newInventory = new AMateria *[4];
+    for (int i = 0; i < 4; i++)
+        newInventory[i] = NULL;
     int idx = 0;
     while (idx < 4)
     {
@@ -64,8 +63,8 @@ AMateria** Character::cloneInventory(void) const
             newInventory[idx] = _inventory[idx]->clone();
             std::cout << "equipped at slot " << idx << std::endl;
         }
-        else
-            newInventory[idx] = NULL;
+//        else
+//            newInventory[idx] = NULL;
         idx++;
     }
     return (newInventory);
@@ -126,6 +125,13 @@ std::string const & Character::getName() const
 }
 void Character::equip(AMateria* m)
 {
+    if (!m)
+        return ;
+    if (m->isEquipped())
+    {
+        std::cout << "this materia is used by someone else" << std::endl;
+        return;
+    }
     for (int i = 0; i < 4; i++)
     {
         if (_inventory[i] == m)
@@ -140,6 +146,7 @@ void Character::equip(AMateria* m)
     {
         if (_inventory[idx] == NULL)
         {
+            m->setEquipped();
             _inventory[idx] = m;
             std::cout << "equipped at slot " << idx << std::endl;
             return ;
@@ -148,7 +155,6 @@ void Character::equip(AMateria* m)
     }
     std::cout << "can't equip materia. Deleting" << std::endl;
     delete m;
-//    _inventory[idx] = m;
 }
 
 void Character::unequip(int idx)
@@ -166,9 +172,6 @@ void Character::unequip(int idx)
         for(int i = 0; i < _unequippedIndex; i++)
         {
             _unequippedInventory [i] = tmp[i];
-//            tmp [i] = _unequippedInventory[i];
-//            if (tmp[i])
-//                std::cout << std::endl << std::endl << tmp[i]->getType() << std::endl << std::endl;
         }
         _unequippedIndex++;
         _unequippedInventory[_unequippedIndex - 1] = _inventory[idx];

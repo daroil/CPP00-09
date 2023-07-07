@@ -22,6 +22,7 @@ Cure::Cure() : AMateria("cure")
 Cure::Cure(const Cure &copy) : AMateria("cure")
 {
 	_type = copy.getType();
+    _equipped = copy.isEquipped();
 	std::cout << "\e[0;33mCopy Constructor called of Cure\e[0m" << std::endl;
 }
 
@@ -29,6 +30,7 @@ Cure::Cure(const Cure &copy) : AMateria("cure")
 Cure & Cure::operator=(const Cure &assign)
 {
 	_type = assign.getType();
+    _equipped = assign.isEquipped();
 	return *this;
 }
 

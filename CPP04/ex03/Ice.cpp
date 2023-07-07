@@ -20,6 +20,7 @@ Ice::Ice() : AMateria("ice")
 Ice::Ice(const Ice &copy) : AMateria("ice")
 {
 	_type = copy.getType();
+    _equipped = copy.isEquipped();
 	std::cout << "\e[0;33mCopy Constructor called of Ice\e[0m" << std::endl;
 }
 
@@ -34,6 +35,7 @@ Ice::~Ice()
 Ice & Ice::operator=(const Ice &assign)
 {
 	_type = assign.getType();
+	_equipped = assign.isEquipped();
 	return *this;
 }
 

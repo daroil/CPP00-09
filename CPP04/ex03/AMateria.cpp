@@ -22,12 +22,14 @@
 AMateria::AMateria(const AMateria &copy)
 {
 	_type = copy.getType();
+    _equipped = false;
 	std::cout << "\e[0;33mCopy Constructor called of AMateria\e[0m" << std::endl;
 }
 
 AMateria::AMateria(std::string const  &type)
 {
 	_type = type;
+    _equipped = false;
 	std::cout << "\e[0;33mFields Constructor called of AMateria\e[0m" << std::endl;
 }
 
@@ -59,4 +61,14 @@ std::string const  & AMateria::getType() const
 void AMateria::use(ICharacter &target) {
     (void)target;
     std::cout << "*" << std::endl;
+}
+
+bool    AMateria::isEquipped(void) const
+{
+    return _equipped;
+}
+
+void   AMateria::setEquipped(void)
+{
+    _equipped = true;
 }
