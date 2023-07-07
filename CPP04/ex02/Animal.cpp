@@ -34,12 +34,12 @@ Animal::~Animal(void)
 	std::cout << "The Homunculus died" << std::endl;
 }
 
-void	Animal::makeSound(void)
-{
-	if (_type == "Dog")
-		std::cout << "Bark!" << std::endl;
-	else if (_type == "Cat")
-		std::cout << "Meow!" << std::endl;
-	else
-		std::cout << "Random gibberish!" << std::endl;
-}
+// void	Animal::makeSound(void)
+// {
+// 	if (_type == "Dog")
+// 		std::cout << "Bark!" << std::endl;
+// 	else if (_type == "Cat")
+// 		std::cout << "Meow!" << std::endl;
+// 	else
+// 		std::cout << "Random gibberish!" << std::endl;
+// }

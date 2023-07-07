@@ -23,8 +23,6 @@ Dog::Dog(void) : Animal(), _brain(new Brain())
 
 Dog::Dog(const Dog &copy) : Animal(), _brain(new Brain())
 {
-	// *this->_brain = *copy->_brain;
-	// _type = copy._type;
 	*this = copy;
 	std::cout << "\e[0;33mCopy Constructor called of Animal\e[0m" << std::endl;
 }
@@ -44,10 +42,11 @@ Dog::~Dog(void)
 
 void	Dog::makeSound(void)
 {
-	if (_type == "Dog")
-		std::cout << "Bark!" << std::endl;
-	else if (_type == "Cat")
-		std::cout << "Meow!" << std::endl;
-	else
-		std::cout << "Random gibberish!" << std::endl;
+
+	std::cout << "Bark from child!" << std::endl;
+}
+
+void	Dog::displayIdea(int idx)
+{
+		std::cout << _brain->ideas[idx] << std::endl;
 }

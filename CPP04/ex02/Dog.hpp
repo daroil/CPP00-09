@@ -28,6 +28,7 @@ class Dog : public Animal
 		Dog(const Dog &copy);
 		Dog & operator=(const Dog &assign);
 		void	makeSound(void);
+		void	displayIdea(int idx);
 	private:
 		Brain* _brain;
 };
