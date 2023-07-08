@@ -13,11 +13,7 @@
 CC = c++ -Wall -Wextra -Werror -std=c++98
 
 SRC := main.cpp \
-		Animal.cpp \
-		Dog.cpp \
-		WrongAnimal.cpp \
-		WrongCat.cpp \
-		Cat.cpp \
+		Bureaucrat.cpp \
 
 NAME := ex00
 

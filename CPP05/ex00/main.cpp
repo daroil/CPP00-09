@@ -10,38 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#include "Bureaucrat.hpp"
 
 int main( void ) 
 {
-	Animal*         first = new Animal();
-	Animal*         second = new Cat();
-	Animal*         third = new Dog();
-	Cat		        fourth;
-	Dog		        fifth;
-	WrongAnimal*    firstwrong = new WrongAnimal();
-	WrongAnimal*    secondwrong = new WrongCat();
-	WrongCat		fourthwrong;
+    Bureaucrat clerk(12, "Loh");
+    Bureaucrat *clerk1 = new Bureaucrat(13, "chel");
 
-    second->displayType();
-    third->displayType();
-    first->makeSound();
-    second->makeSound();
-    firstwrong->makeSound();
-    secondwrong->makeSound();
-    third->makeSound();
-    fourth.makeSound();
-    fifth.makeSound();
-    fourthwrong.makeSound();
-
-    delete first;
-    delete second;
-    delete third;
-    delete firstwrong;
-    delete secondwrong;
+    std::cout << clerk << std::endl;
+    std::cout << clerk1 << std::endl;
+    delete clerk1;`
 	return (0);
 }
