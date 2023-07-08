@@ -98,7 +98,7 @@ Character & Character::operator=(const Character &assign)
         {
             for(int i = 0; i < 4; i++)
             {
-                if (_inventory[i])
+                if (_inventory[i] )
                     delete _inventory[i];
             }
             delete [] _inventory;

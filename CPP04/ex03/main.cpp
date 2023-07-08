@@ -110,7 +110,7 @@ void    shortTest()
 {
     Character* me = new Character("me");
     Character* tmp1 = new Character("Ty");
-    Character* bob = new Character();
+    Character *bob = new Character();
     IMateriaSource* src = new MateriaSource();
     AMateria* tmp;
 
