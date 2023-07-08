@@ -123,6 +123,7 @@ std::string const & Character::getName() const
 {
     return _name;
 }
+
 void Character::equip(AMateria* m)
 {
     if (!m)

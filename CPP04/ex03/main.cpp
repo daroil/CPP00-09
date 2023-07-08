@@ -20,7 +20,7 @@
 
 // void	checkleaks(void)
 // {
-// 	system("leaks ex01");
+// 	system("leaks ex03");
 // }
 
 void customTests(void){
@@ -178,6 +178,7 @@ void    additionalTests()
 }
 
 int main(void){
+//    atexit(checkleaks);
     shortTest();
     additionalTests();
     subjectTest();
