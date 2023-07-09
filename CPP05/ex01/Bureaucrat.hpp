@@ -5,6 +5,9 @@
 #include <cctype>
 #include <iomanip>
 #include <exception>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -19,6 +22,7 @@ class Bureaucrat
 
         void    incrementGrade(void);
         void    decrementGrade(void);
+        void    signForm(Form *form);
 
         class GradeTooHighException : public std::exception
         {

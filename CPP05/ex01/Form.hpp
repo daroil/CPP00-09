@@ -7,16 +7,24 @@
 #include <exception>
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form
 {
     public:
         Form(void);
         ~Form();
+        Form(int gradeExec, int gradeToSign, std::string name);
         Form(Form const &Form);
         Form &operator=(Form const &copy);
 
-        void    beSigned(Bureaucrat &clerk);
-        void    signForm(Bureaucrat &clerk);
+        void    beSigned(Bureaucrat *clerk);
+
+        std::string const & getName() const;
+        int const           getReqGrade() const;
+        int const           getReqGradeExecute() const;
+        bool                getSigned() const;
+
 
         class GradeTooHighException : public std::exception
         {

@@ -2,8 +2,9 @@ CC = c++ -Wall -Wextra -Werror -std=c++98
 
 SRC := main.cpp \
 		Bureaucrat.cpp \
+		Form.cpp \
 
-NAME := ex00
+NAME := ex01
 
 OBJ	= $(SRC:.cpp=.o)
 
