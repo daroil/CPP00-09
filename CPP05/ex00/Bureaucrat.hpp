@@ -16,20 +16,36 @@
 #include <fstream>
 #include <cctype>
 #include <iomanip>
+#include <exception>
 
 class Bureaucrat
 {
     public:
         Bureaucrat(void);
-        Bureaucrat(unsigned int grade, std::string name);
+        Bureaucrat(int grade, std::string name);
         ~Bureaucrat();
         Bureaucrat(Bureaucrat const &Bureaucrat);
         Bureaucrat &operator=(Bureaucrat const &copy);
         unsigned int        getGrade(void) const;
         std::string const & getName(void) const;
+
+        void    incrementGrade(void);
+        void    decrementGrade(void);
+
+        class GradeTooHighException : public std::exception
+        {
+            public:
+                virtual const char  *what() const throw();
+        };
+
+        class GradeTooLowException : public std::exception
+        {
+            public:
+                virtual const char  *what() const throw();
+        };
     private:
         const std::string   _name;
-        unsigned int        _grade;
+        int        _grade;
 };
 
 std::ostream&	operator<<(std::ostream &os, Bureaucrat const &clerk);
