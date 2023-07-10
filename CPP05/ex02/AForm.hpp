@@ -26,6 +26,13 @@ class AForm
         bool                getSigned() const;
         virtual void        execute(Bureaucrat const & executor) const = 0;
 
+
+        class FormNotSignedException : public std::exception
+        {
+           public:
+                virtual const char  *what() const throw();
+        };
+
         class GradeTooHighException : public std::exception
         {
             public:

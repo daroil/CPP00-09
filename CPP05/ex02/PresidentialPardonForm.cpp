@@ -10,17 +10,6 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm(5, 25
     std::cout << "The PresidentialPardonForm was created" << std::endl;
 }
 
-const char* PresidentialPardonForm::GradeTooHighException::what() const throw()
-{
-    return (" grade is too high");
-}
-
-const char* PresidentialPardonForm::GradeTooLowException::what() const throw()
-{
-    return (" grade is too low");
-}
-
-
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &PresidentialPardonForm)
 {
     std::cout << "Copy constructor called" << std::endl;
@@ -39,9 +28,11 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 }
 
 void    PresidentialPardonForm::execute(const Bureaucrat &executor) const {
-    if (executor.getGrade() > this.getReqGradeExecute())
-        std::cout << "Grade too low" << std::endl;
-
-    std::cout << "CALLED EXECUTE" << std::endl;
+    if (executor.getGrade() > this->getReqGradeExecute())
+        throw AForm::GradeTooLowException();
+    if (!this->getSigned())
+        throw AForm::FormNotSignedException();
+    else
+        std::cout << _target << "was pardoned by Zaphod Beeblebrox" << std::endl;
 
 }

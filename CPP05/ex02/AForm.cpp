@@ -26,6 +26,12 @@ const char* AForm::GradeTooLowException::what() const throw()
     return (" grade is too low");
 }
 
+const char* AForm::FormNotSignedException::what() const throw()
+{
+    return (" Form is not signed");
+}
+
+
 AForm::~AForm()
 {
     std::cout << "Default destructor called" << std::endl;
