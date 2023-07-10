@@ -3,6 +3,7 @@ CC = c++ -Wall -Wextra -Werror -std=c++98
 SRC := main.cpp \
 		Bureaucrat.cpp \
 		AForm.cpp \
+		PresidentialPardonForm.cpp \
 
 NAME := ex01
 
