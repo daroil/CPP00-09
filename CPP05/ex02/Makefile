@@ -4,6 +4,7 @@ SRC := main.cpp \
 		Bureaucrat.cpp \
 		AForm.cpp \
 		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
 
 NAME := ex01
 

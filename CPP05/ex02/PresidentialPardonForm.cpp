@@ -1,7 +1,7 @@
 #include "PresidentialPardonForm.hpp"
 
 
-PresidentialPardonForm::PresidentialPardonForm(void) : AForm(5, 25, "PresidentialPardonForm")
+PresidentialPardonForm::PresidentialPardonForm(void) : AForm(5, 25, "PresidentialPardonForm"), _target("You")
 {
     std::cout << "The default PresidentialPardonForm was created" << std::endl;
 }
@@ -24,7 +24,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=( PresidentialPardonFor
 
 PresidentialPardonForm::~PresidentialPardonForm(void)
 {
-    std::cout << "The Clerk died" << std::endl;
+    std::cout << "The pardon form died" << std::endl;
 }
 
 void    PresidentialPardonForm::execute(const Bureaucrat &executor) const {
