@@ -59,7 +59,7 @@ int const   Form::getReqGrade() const {
 }
 
 int const   Form::getReqGradeExecute() const {
-    return this->_reqGrade;
+    return this->_reqGradeExecute;
 }
 
 void    Form::beSigned(Bureaucrat *clerk) {
