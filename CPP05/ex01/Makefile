@@ -13,6 +13,9 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
+$(OBJ): %.o: %.cpp
+	$(CC) -c $< -o $@
+
 clean:
 	rm $(OBJ)
 

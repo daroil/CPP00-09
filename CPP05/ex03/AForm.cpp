@@ -60,11 +60,11 @@ bool    AForm::getSigned() const
     return this->_signed;
 }
 
-int const   AForm::getReqGrade() const {
+int   AForm::getReqGrade() const {
     return this->_reqGrade;
 }
 
-int const   AForm::getReqGradeExecute() const {
+int   AForm::getReqGradeExecute() const {
     return this->_reqGradeExecute;
 }
 

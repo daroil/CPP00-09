@@ -9,7 +9,7 @@
 
 void    checkleaks(void)
 {
-    system("leaks ex02");
+    system("leaks ex03");
 }
 
 int main() {
@@ -18,10 +18,10 @@ int main() {
     RobotomyRequestForm first2;
     ShrubberyCreationForm first3;
     AForm *second;
-    PresidentialPardonForm *third = new PresidentialPardonForm("strange AForm");
-    PresidentialPardonForm & formRef = first;
-    RobotomyRequestForm & formRef2 = first2;
-    ShrubberyCreationForm & formRef3 = first3;
+//    PresidentialPardonForm *third = new PresidentialPardonForm("strange AForm");
+//    PresidentialPardonForm & formRef = first;
+//    RobotomyRequestForm & formRef2 = first2;
+//    ShrubberyCreationForm & formRef3 = first3;
     Bureaucrat guy(1, "cringe");
 
 
@@ -58,6 +58,6 @@ int main() {
     {
         std::cout << "couldn't create form because" << e.what() << std::endl;
     }
-    delete  third;
+//    delete  third;
     return (0);
 }

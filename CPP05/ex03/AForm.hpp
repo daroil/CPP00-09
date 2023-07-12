@@ -21,8 +21,8 @@ class AForm
         void    beSigned(Bureaucrat *clerk);
 
         std::string const & getName() const;
-        int const           getReqGrade() const;
-        int const           getReqGradeExecute() const;
+        int                 getReqGrade() const;
+        int                 getReqGradeExecute() const;
         bool                getSigned() const;
         virtual void        execute(Bureaucrat const & executor) const = 0;
 

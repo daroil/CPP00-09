@@ -43,7 +43,7 @@ Bureaucrat::~Bureaucrat(void)
     std::cout << "The Clerk died" << std::endl;
 }
 
-unsigned int    Bureaucrat::getGrade() const{
+int    Bureaucrat::getGrade() const{
     return this->_grade;
 }
 
