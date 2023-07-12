@@ -8,7 +8,7 @@ SRC := main.cpp \
 		ShrubberyCreationForm.cpp \
 		Intern.cpp \
 
-NAME := ex02
+NAME := ex03
 
 OBJ	= $(SRC:.cpp=.o)
 

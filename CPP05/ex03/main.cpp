@@ -37,11 +37,27 @@ int main() {
 //    guy.executeForm(formRef2);
 //    guy.executeForm(formRef);
     Intern  dude;
-    second = dude.makeForm("Pres", "Another dude");
-//    formRef = second;
-    guy.signForm(second);
-    guy.executeForm(*second);
-    delete second;
+    try{
+        second = dude.makeForm("Pres", "Another dude");
+        guy.signForm(second);
+        guy.executeForm(*second);
+        delete second;
+    }
+    catch (Intern::CannotCreateForm &e)
+    {
+        std::cout << "couldn't create form because" << e.what() << std::endl;
+    }
+    try
+    {
+        second = dude.makeForm("PresidentialPardon", "Another dude");
+        guy.signForm(second);
+        guy.executeForm(*second);
+        delete second;
+    }
+    catch (Intern::CannotCreateForm &e)
+    {
+        std::cout << "couldn't create form because" << e.what() << std::endl;
+    }
     delete  third;
     return (0);
 }
