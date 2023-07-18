@@ -51,7 +51,7 @@ bool ScalarConverter::isFloat(char *value)
             value[length - 1] = '\0';
     char*	endptr;
     double f = std::strtod(value, &endptr);
-    std::cout << f << std::endl;
+//    std::cout << f << std::endl;
     if (*endptr == '\0'
         && (f >= -std::numeric_limits<float>::max()
             && f <= std::numeric_limits<float>::max()))
@@ -120,26 +120,26 @@ bool ScalarConverter::isDouble(char* value)
 //    return ;
 //}
 
-void	print(char _char, int _int, double _double, float _float, std::string input) {
+//void	print(char _char, int _int, double _double, float _float, std::string input) {
+//
+//    if (isnan(_double))
+//        std::cout << "char: Impossible" << std::endl;
+//    else if (_char < 32 || _char > 126)
+//        std::cout << "char: Non displayable" << std::endl;
+//    else
+//        std::cout << "char: " << _char << std::endl;
+//    if (isinf(_double) || isnan(_double))
+//        std::cout << "int: Impossible" << std::endl;
+//    else if (atof(input.c_str()) > std::numeric_limits<int>::max() \
+//			|| atof(input.c_str()) < std::numeric_limits<int>::min())
+//        std::cout << "int: Overflow" << std::endl;
+//    else
+//        std::cout << "int: " << _int << std::endl;
+//    std::cout << std::fixed << std::setprecision(1) << "float: " << _float << "f" <<std::endl;
+//    std::cout << std::fixed << std::setprecision(1) << "double: " << _double << std::endl;
+//}
 
-    if (isnan(_double))
-        std::cout << "char: Impossible" << std::endl;
-    else if (_char < 32 || _char > 126)
-        std::cout << "char: Non displayable" << std::endl;
-    else
-        std::cout << "char: " << _char << std::endl;
-    if (isinf(_double) || isnan(_double))
-        std::cout << "int: Impossible" << std::endl;
-    else if (atof(input.c_str()) > std::numeric_limits<int>::max() \
-			|| atof(input.c_str()) < std::numeric_limits<int>::min())
-        std::cout << "int: Overflow" << std::endl;
-    else
-        std::cout << "int: " << _int << std::endl;
-    std::cout << std::fixed << std::setprecision(1) << "float: " << _float << "f" <<std::endl;
-    std::cout << std::fixed << std::setprecision(1) << "double: " << _double << std::endl;
-}
-
-int ScalarConverter::getType(char *value)
+size_t ScalarConverter::getType(char *value)
 {
     if (isChar(value))
         return CHAR;
@@ -153,54 +153,61 @@ int ScalarConverter::getType(char *value)
         return ERROR;
 }
 
-void    ScalarConverter::convert(char *value) {
-    std::cout << getType(value) << std::endl;
-    if (getType(value) != 4)
-    {
-        if(!std::isdigit(value[0]) && std::strlen(value) == 1)
-        {
-            char c = value[0];
-            if (c >= std::numeric_limits<unsigned char>::min() // 0
-                && c <= std::numeric_limits<char>::max()) // 127
-                if (std::isprint(c))
-                    std::cout << "char:\t" << "'" << c << "'" << std::endl;
-                else
-                    std::cout << "char:\tNon displayable" << std::endl;
-            else
-                std::cout << "char:\tImpossible"<< std::endl;
-
-            std::cout << "int:\t" << static_cast<int>(c) << std::endl;
-            std::cout << std::fixed << std::setprecision(1) << "float:\t" << static_cast<float>(c) << "f" << std::endl;
-            std::cout << "double:\t" << static_cast<double>(c) << std::endl;
-        }
+void    ScalarConverter::printFromChar(char c)
+{
+    if (c >= std::numeric_limits<unsigned char>::min() // 0
+        && c <= std::numeric_limits<char>::max()) // 127
+        if (std::isprint(c))
+            std::cout << "char:\t" << "'" << c << "'" << std::endl;
         else
-        {
-            double d = std::strtod(value, NULL);
-            if (d >= std::numeric_limits<unsigned char>::min()
-                && d <= std::numeric_limits<char>::max())
-                if (std::isprint(d))
-                    std::cout << "char:\t" << "'" << static_cast<char>(d) << "'" << std::endl;
-                else
-                    std::cout << "char:\tNon displayable" << std::endl;
-            else
-                std::cout << "char:\tImpossible"<< std::endl;
-            if (static_cast<int>(d) == std::numeric_limits<int>::min()
-                || static_cast<int>(d) == std::numeric_limits<int>::max()
-                || isinf(d) || isnan(d))
-                std::cout << "int:\tImpossible" << std::endl;
-            else
-                std::cout << "int:\t" << static_cast<int>(d) << std::endl;
-            std::cout << std::fixed << std::setprecision(1) << "float:\t" << static_cast<float>(d) << "f" << std::endl;
-            std::cout << "double:\t" << d << std::endl;
-        }
-    }
+            std::cout << "char:\tNon displayable" << std::endl;
     else
-    {
+        std::cout << "char:\tImpossible"<< std::endl;
+
+    std::cout << "int:\t" << static_cast<int>(c) << std::endl;
+    std::cout << std::fixed << std::setprecision(1) << "float:\t" << static_cast<float>(c) << "f" << std::endl;
+    std::cout << "double:\t" << static_cast<double>(c) << std::endl;
+}
+
+void    ScalarConverter::printRest(char *value) {
+        double d = std::strtod(value, NULL);
+        if (d >= std::numeric_limits<unsigned char>::min()
+            && d <= std::numeric_limits<char>::max())
+            if (std::isprint(d))
+                std::cout << "char:\t" << "'" << static_cast<char>(d) << "'" << std::endl;
+            else
+                std::cout << "char:\tNon displayable" << std::endl;
+        else
+            std::cout << "char:\tImpossible"<< std::endl;
+        if (static_cast<int>(d) == std::numeric_limits<int>::min()
+            || static_cast<int>(d) == std::numeric_limits<int>::max()
+            || isinf(d) || isnan(d))
+            std::cout << "int:\tImpossible" << std::endl;
+        else
+            std::cout << "int:\t" << static_cast<int>(d) << std::endl;
+        std::cout << std::fixed << std::setprecision(1) << "float:\t" << static_cast<float>(d) << "f" << std::endl;
+        std::cout << "double:\t" << d << std::endl;
+
+}
+
+void    ScalarConverter::printError() {
         std::cout << "\033[1;91mInvalid input\033[0m" << std::endl;
         std::cout << "Examples of char literals: 'c', 'a', etc." << std::endl;
         std::cout << "Examples of int literals: 0, -42, 42, etc." << std::endl;
         std::cout << "Examples of float literals: 0.0f, -4.2f, 4.2f, etc." << std::endl;
         std::cout << "Examples of double literals: 0.0, -4.2, 4.2, etc." << std::endl;
-    }
+}
 
+void    ScalarConverter::convert(char *value) {
+    size_t type = getType(value);
+    std::cout << "result " << type << std::endl;
+    if (type < 4)
+    {
+        if(type == 0)
+            printFromChar(value[0]);
+        else
+            printRest(value);
+    }
+    else
+        printError();
 }

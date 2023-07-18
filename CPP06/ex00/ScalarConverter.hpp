@@ -20,12 +20,15 @@ class ScalarConverter
         ScalarConverter(ScalarConverter const &ScalarConverter);
         ScalarConverter &operator=( ScalarConverter const &copy);
 
-        static int     getType(char *value);
+        static size_t    getType(char *value);
         static bool    isChar(char *value);
         static bool    isInt(char *value);
         static bool    isFloat(char *value);
         static bool    isDouble(char *value);
 
+        static void     printFromChar(char c);
+        static void     printRest(char *value);
+        static void     printError(void);
     public:
         ~ScalarConverter();
         static void convert(char *value);
