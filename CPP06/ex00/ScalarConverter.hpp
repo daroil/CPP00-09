@@ -24,6 +24,7 @@ class ScalarConverter
         static bool    isChar(char *value);
         static bool    isInt(char *value);
         static bool    isFloat(char *value);
+        static bool    isDouble(char *value);
 
     public:
         ~ScalarConverter();
