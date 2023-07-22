@@ -8,18 +8,21 @@
 #include <limits> // std::numeric_limits
 #include <math.h> // isnan(), isinf()
 
+struct Data{
+    int num;
+    std::string myStr;
+};
 
 class Serializer
 {
 private:
 
     Serializer();
+    ~Serializer();
     Serializer(Serializer const &Serializer);
     Serializer &operator=( Serializer const &copy);
 
-
 public:
-    ~Serializer();
-    uintptr_t serialize(Data *ptr);
-    Data *deserialize(uintptr_t raw);
+    static uintptr_t serialize(Data *ptr);
+    static Data *deserialize(uintptr_t raw);
 };

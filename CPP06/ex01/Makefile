@@ -2,7 +2,7 @@
 CC = c++ -Wall -Wextra -Werror -std=c++98
 
 SRC := main.cpp \
-		ScalarConverter.cpp \
+		Serializer.cpp \
 
 NAME := ex01
 
