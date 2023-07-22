@@ -27,7 +27,9 @@ class ScalarConverter
         static bool    isDouble(char *value);
 
         static void     printFromChar(char c);
-        static void     printRest(char *value);
+        static void     printFromInt(char *value);
+        static void     printFromFloat(char *value);
+        static void     printFromDouble(char *value);
         static void     printError(void);
     public:
         ~ScalarConverter();
