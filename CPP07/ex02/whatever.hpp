@@ -20,15 +20,21 @@ class Array
 public:
     Array(void) : array(new T()){};
 //    ~Array(void);
-    Array(unsigned int n) : array(new T[n]) {for(unsigned int i = 0; i < n; i++){array[i] = 0;}};
+    Array(unsigned int n) : array(new T[n]), _size(n) {for(unsigned int i = 0; i < n; i++){array[i] = 0;}};
 //    Array(Array const &Array);
 //    Array &operator=(Array const &copy);
     T *array;
     unsigned int size(void) {
-        unsigned int i = 0;
-        while(array[i])
-            i++;
-        return i;
+        if (_size)
+            return _size;
+        else
+        {
+            unsigned int i = 0;
+            while(array[i])
+                i++;
+            return i;
+        }
     }
 private:
+    unsigned int _size;
 };
