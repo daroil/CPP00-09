@@ -2,7 +2,7 @@
 CC = c++ -Wall -Wextra -Werror -std=c++98
 
 SRC := main.cpp \
-		Identify.cpp \
+		Base.cpp \
 
 NAME := ex02
 

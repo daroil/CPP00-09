@@ -7,16 +7,18 @@
 #include <cctype> // isprint()
 #include <limits> // std::numeric_limits
 #include <math.h> // isnan(), isinf()
+#include <random>
 
-class Identify
+class Base
 {
-private:
-
-    Identify();
-    ~Identify();
-    Identify(Identify const &Identify);
-    Identify &operator=( Identify const &copy);
-
-public:
-
+    public:
+        virtual ~Base() {};
 };
+
+class A : public Base {};
+class B : public Base {};
+class C : public Base {};
+
+Base *generate(void);
+void identify(Base *p);
+void identify(Base &p);
