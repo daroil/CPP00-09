@@ -31,5 +31,6 @@ int main(void)
         }
     }
     catch (std::exception &e) {}
+    sp.displaySpan();
     return 0;
 }

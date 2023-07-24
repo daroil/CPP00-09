@@ -31,8 +31,21 @@ Span::~Span(void)
 }
 
 void    Span::addNumber(int number) {
-    if (++_size > _maxSize)
+    if (_size + 1 > _maxSize)
         throw std::exception();
     _size++;
-    (void)number;
+    myVector.push_back(number);
 }
+
+void    Span::displaySpan(void)
+{
+    for (unsigned int i = 0; i < _size; ++i)
+        std::cout << myVector[i] << std::endl;
+}
+
+//int     Span::shortestSpan() {
+//
+//}
+//
+//int Span::longestSpan() {
+//}

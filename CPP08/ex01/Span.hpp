@@ -32,6 +32,7 @@ public:
     int     shortestSpan(void);
     int     longestSpan(void);
 
+    void    displaySpan(void);
 private:
     unsigned int        _maxSize;
     std::vector<int>    myVector;
