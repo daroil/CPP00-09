@@ -111,7 +111,7 @@ void ScalarConverter::printFromInt(char *value) {
         std::cout << "char:\tImpossible"<< std::endl;
     std::cout << "int:\t" << i << std::endl;
     std::cout << std::fixed << std::setprecision(1) << "float:\t" << static_cast<float>(i) << "f" << std::endl;
-    std::cout << std::fixed << std::setprecision(1) << "double:\t" << static_cast<double>(i) << std::endl;
+    std::cout << "double:\t" << static_cast<double>(i) << std::endl;
 }
 
 void ScalarConverter::printFromFloat(char *value) {
