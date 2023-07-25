@@ -32,7 +32,10 @@ Span::~Span(void)
 
 void    Span::addNumber(int number) {
     if (_size + 1 > _maxSize)
+    {
+        std::cout << "max size reached" << std::endl;
         throw std::exception();
+    }
     _size++;
     myVector.push_back(number);
 }
@@ -43,9 +46,36 @@ void    Span::displaySpan(void)
         std::cout << myVector[i] << std::endl;
 }
 
-//int     Span::shortestSpan() {
-//
-//}
-//
-//int Span::longestSpan() {
-//}
+int     Span::shortestSpan() {
+    if(myVector.empty())
+    {
+        std::cout << "Vector is empty!" << std::endl;
+        return 0;
+    }
+    int shortest_span = INT_MAX;
+    std::vector<int> sortedArray = myVector;
+    std::sort(sortedArray.begin(), sortedArray.end());
+    for (size_t i = 0; i < sortedArray.size(); i++)
+    {
+        if (sortedArray[i + 1])
+        {
+            int diff = sortedArray[i + 1] - sortedArray[i];
+            shortest_span = std::min(shortest_span, diff);
+        }
+    }
+    return shortest_span;
+}
+
+
+int Span::longestSpan() {
+
+    if(myVector.empty())
+    {
+        std::cout << "Vector is empty!" << std::endl;
+        return 0;
+    }
+    std::vector<int>::iterator maxElementIt = std::max_element(myVector.begin(), myVector.end());
+    std::vector<int>::iterator minElementIt = std::min_element(myVector.begin(), myVector.end());
+
+    return *maxElementIt - *minElementIt;
+}

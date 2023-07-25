@@ -1,36 +1,43 @@
 #include "Span.hpp"
 
 
-int main(void)
+void    subject_test(void)
 {
 
-//        std::vector<int> myVector;
-//
-//        myVector.push_back(10);
-//        myVector.push_back(20);
-//        myVector.push_back(30);
-//
-//        try{
-//            std::vector<int>::iterator result = easyfind(myVector, 20);
-//            std::cout << std::distance(myVector.begin(), result) << std::endl;
-//            result = easyfind(myVector, 40);
-//            std::cout << std::distance(myVector.begin(), result) << std::endl;
-////            std::cout << easyfind(myVector, 30) << std::endl;
-////            std::cout << easyfind(myVector, 40) << std::endl;
-//        }
-//        catch (std::exception &e){
-//            std::cout << "error" << std::endl;
-//        }
-
     Span sp = Span(5);
+    sp.addNumber(6);
+    sp.addNumber(3);
+    sp.addNumber(17);
+    sp.addNumber(9);
+    sp.addNumber(11);
+    std::cout << sp.shortestSpan() << std::endl;
+    std::cout << sp.longestSpan() << std::endl;
+
+}
+
+void    myTest(void)
+{
+    Span sp = Span(5);
+    Span sp2 = Span(5);
     try{
         for(int i = 0; i < 6; i++)
         {
+            sp.addNumber(2+i);
             std::cout << "added" << std::endl;
-            sp.addNumber(2);
         }
     }
     catch (std::exception &e) {}
     sp.displaySpan();
+    std::cout << sp.longestSpan() << std::endl;
+    std::cout << sp.shortestSpan() << std::endl;
+    std::cout << sp2.longestSpan() << std::endl;
+    std::cout << sp2.shortestSpan() << std::endl;
+
+}
+
+int main(void)
+{
+    subject_test();
+    myTest();
     return 0;
 }
