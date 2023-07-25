@@ -35,7 +35,7 @@ void    RobotomyRequestForm::execute(const Bureaucrat &executor) const {
     else
     {
         // Create a random device to seed the random number generator
-        std::cout  << " BRRRRRRRR.........." << std::endl;
+        std::cout  << "BRRRRRRRR.........." << std::endl;
         std::srand(std::time(0));
 
         // Define the range for the random number (inclusive)
