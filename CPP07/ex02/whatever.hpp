@@ -58,7 +58,6 @@ public:
 
     unsigned int size(void) {
         if (_size)
-
             return _size;
         else
         {
