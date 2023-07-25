@@ -3,20 +3,14 @@
 Base *generate(void)
 {
     // Create a random device to seed the random number generator
-    std::random_device rd;
-
-    // Create a Mersenne Twister random number generator and seed it with the random device
-    std::mt19937 gen(rd());
+    std::srand(std::time(0));
 
     // Define the range for the random number (inclusive)
     int min = 1;
     int max = 3;
 
-    // Create a uniform distribution that maps values from the generator to the desired range
-    std::uniform_int_distribution<int> dis(min, max);
-
-    // Generate the random number
-    int randomValue = dis(gen);
+    // Generate the random number in the range [min, max]
+    int randomValue = min + std::rand() % (max - min + 1);
 
     // Output the result
 //    std::cout << "Random value: " << randomValue << std::endl;
@@ -24,15 +18,15 @@ Base *generate(void)
         case 0:
 //            std::cout << 1 << std::endl;
             return (new A);
-            break;
+//            break;
         case 1:
 //            std::cout << 2 << std::endl;
             return (new B);
-            break;
+//            break;
         case 2:
 //            std::cout << 3 << std::endl;
             return (new C);
-            break;
+//            break;
     }
     std::cout << "Error" << std::endl;
     return NULL;
