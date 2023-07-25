@@ -6,19 +6,6 @@
 #include <stdexcept>
 #include <numeric>
 
-template <typename T>
-typename T::iterator easyfind(T& container, int value) {
-    // Find the first occurrence of 'value' in the container
-    typename T::iterator it = std::find(container.begin(), container.end(), value);
-
-    // Check if the element was found
-    if (it != container.end()) {
-        return it;
-    } else {
-        throw std::runtime_error("Value not found in container");
-    }
-}
-
 class Span
 {
 public:
