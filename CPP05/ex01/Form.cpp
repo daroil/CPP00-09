@@ -2,11 +2,11 @@
 
 Form::Form() : _name("Form"), _signed(false), _reqGrade(50), _reqGradeExecute(50)
 {
-        std::cout << "Default form constructor called" << std::endl;
+//        std::cout << "Default form constructor called" << std::endl;
 }
 
 
-Form::Form(int gradeExec, int gradeToSign, std::string name) : _name(name), _signed(false), _reqGrade(gradeToSign), _reqGradeExecute(gradeExec)
+Form::Form(unsigned int gradeExec, unsigned int gradeToSign, std::string name) : _name(name), _signed(false), _reqGrade(gradeToSign), _reqGradeExecute(gradeExec)
 {
     if (_reqGrade < 1 || _reqGradeExecute < 1)
         throw Form::GradeTooHighException();
@@ -28,17 +28,17 @@ const char* Form::GradeTooLowException::what() const throw()
 
 Form::~Form()
 {
-    std::cout << "Default destructor called" << std::endl;
+//    std::cout << "Default destructor called" << std::endl;
 }
 
 Form::Form(const Form &Form) : _name(Form._name), _signed(false), _reqGrade(Form._reqGrade), _reqGradeExecute(Form._reqGradeExecute)
 {
-    std::cout << "Copy constructor called" << std::endl;
+//    std::cout << "Copy constructor called" << std::endl;
     *this = Form;
 }
 
 Form &Form::operator=( Form const &copy) {
-    std::cout << "Copy assignment operator called" << std::endl;
+//    std::cout << "Copy assignment operator called" << std::endl;
     if (this == &copy)
         return (*this);
     _signed = copy._signed;
@@ -54,11 +54,11 @@ bool    Form::getSigned() const
     return this->_signed;
 }
 
-int const   Form::getReqGrade() const {
+unsigned int   Form::getReqGrade() const {
     return this->_reqGrade;
 }
 
-int const   Form::getReqGradeExecute() const {
+unsigned int   Form::getReqGradeExecute() const {
     return this->_reqGradeExecute;
 }
 

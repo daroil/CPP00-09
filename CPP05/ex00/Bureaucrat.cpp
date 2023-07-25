@@ -87,6 +87,6 @@ std::ostream&	operator<<(std::ostream &os, Bureaucrat const &clerk)
 
 std::ostream&	operator<<(std::ostream &os, Bureaucrat const *clerk)
 {
-    os << clerk->   getName() << ", bureaucrat grade " << clerk->   getGrade();
+    os << clerk->getName() << ", bureaucrat grade " << clerk->getGrade();
     return (os);
 }

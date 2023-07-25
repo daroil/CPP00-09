@@ -2,7 +2,7 @@
 
 AForm::AForm() : _name("AForm"), _signed(false), _reqGrade(50), _reqGradeExecute(50)
 {
-        std::cout << "Default AForm constructor called" << std::endl;
+//        std::cout << "Default AForm constructor called" << std::endl;
 }
 
 
@@ -34,17 +34,17 @@ const char* AForm::FormNotSignedException::what() const throw()
 
 AForm::~AForm()
 {
-    std::cout << "Default destructor called" << std::endl;
+//    std::cout << "Default destructor called" << std::endl;
 }
 
 AForm::AForm(const AForm &AForm) : _name(AForm._name), _signed(false), _reqGrade(AForm._reqGrade), _reqGradeExecute(AForm._reqGradeExecute)
 {
-    std::cout << "Copy constructor called" << std::endl;
+//    std::cout << "Copy constructor called" << std::endl;
     *this = AForm;
 }
 
 AForm &AForm::operator=( AForm const &copy) {
-    std::cout << "Copy assignment operator called" << std::endl;
+//    std::cout << "Copy assignment operator called" << std::endl;
     if (this == &copy)
         return (*this);
     _signed = copy._signed;
@@ -60,11 +60,11 @@ bool    AForm::getSigned() const
     return this->_signed;
 }
 
-int const   AForm::getReqGrade() const {
+unsigned int   AForm::getReqGrade() const {
     return this->_reqGrade;
 }
 
-int const   AForm::getReqGradeExecute() const {
+unsigned int  AForm::getReqGradeExecute() const {
     return this->_reqGradeExecute;
 }
 

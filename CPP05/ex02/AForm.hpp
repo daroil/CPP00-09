@@ -21,8 +21,8 @@ class AForm
         void    beSigned(Bureaucrat *clerk);
 
         std::string const & getName() const;
-        int const           getReqGrade() const;
-        int const           getReqGradeExecute() const;
+        unsigned int           getReqGrade() const;
+        unsigned int           getReqGradeExecute() const;
         bool                getSigned() const;
         virtual void        execute(Bureaucrat const & executor) const = 0;
 
@@ -48,8 +48,8 @@ class AForm
     private:
         const std::string   _name;
         bool                _signed;
-        const   int         _reqGrade;
-        const   int         _reqGradeExecute;
+        const   unsigned int         _reqGrade;
+        const   unsigned int         _reqGradeExecute;
 };
 
 std::ostream&	operator<<(std::ostream &os, AForm const &clerk);

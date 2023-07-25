@@ -12,30 +12,14 @@ void    checkleaks(void)
     system("leaks ex03");
 }
 
-int main() {
-    atexit(checkleaks);
+
+void    PresidentialPardonFormTry(void)
+{
     PresidentialPardonForm first;
     RobotomyRequestForm first2;
     ShrubberyCreationForm first3;
     AForm *second;
-//    PresidentialPardonForm *third = new PresidentialPardonForm("strange AForm");
-//    PresidentialPardonForm & formRef = first;
-//    RobotomyRequestForm & formRef2 = first2;
-//    ShrubberyCreationForm & formRef3 = first3;
     Bureaucrat guy(1, "cringe");
-
-
-//    first = *second;
-//    *second = *third;
-//    std::cout << first << std::endl;
-//    std::cout << second << std::endl;
-//    std::cout << third << std::endl;
-//    std::cout << guy << std::endl;
-//    guy.signForm(third);
-//    guy.signForm(&formRef);
-//    guy.signForm(&formRef2);
-//    guy.executeForm(formRef2);
-//    guy.executeForm(formRef);
     Intern  dude;
     try{
         second = dude.makeForm("Pres", "Another dude");
@@ -58,6 +42,74 @@ int main() {
     {
         std::cout << "couldn't create form because" << e.what() << std::endl;
     }
-//    delete  third;
+}
+
+void    ShrubberyTry(void)
+{
+    PresidentialPardonForm first;
+    RobotomyRequestForm first2;
+    ShrubberyCreationForm first3;
+    AForm *second;
+    Bureaucrat guy(1, "cringe");
+    Intern  dude;
+    try{
+        second = dude.makeForm("Shrub", "Another dude");
+        guy.signForm(second);
+        guy.executeForm(*second);
+        delete second;
+    }
+    catch (Intern::CannotCreateForm &e)
+    {
+        std::cout << "couldn't create form because" << e.what() << std::endl;
+    }
+    try
+    {
+        second = dude.makeForm("ShrubberyCreation", "Another dude");
+        guy.signForm(second);
+        guy.executeForm(*second);
+        delete second;
+    }
+    catch (Intern::CannotCreateForm &e)
+    {
+        std::cout << "couldn't create form because" << e.what() << std::endl;
+    }
+}
+
+void    RobotomyRequestFormTry(void)
+{
+    PresidentialPardonForm first;
+    RobotomyRequestForm first2;
+    ShrubberyCreationForm first3;
+    AForm *second;
+    Bureaucrat guy(1, "cringe");
+    Intern  dude;
+    try{
+        second = dude.makeForm("Robot", "Another dude");
+        guy.signForm(second);
+        guy.executeForm(*second);
+        delete second;
+    }
+    catch (Intern::CannotCreateForm &e)
+    {
+        std::cout << "couldn't create form because" << e.what() << std::endl;
+    }
+    try
+    {
+        second = dude.makeForm("RobotomyRequest", "Another dude");
+        guy.signForm(second);
+        guy.executeForm(*second);
+        delete second;
+    }
+    catch (Intern::CannotCreateForm &e)
+    {
+        std::cout << "couldn't create form because" << e.what() << std::endl;
+    }
+}
+
+int main() {
+//    atexit(checkleaks);
+    ShrubberyTry();
+    PresidentialPardonFormTry();
+    RobotomyRequestFormTry();
     return (0);
 }

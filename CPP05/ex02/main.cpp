@@ -11,7 +11,7 @@ void    checkleaks(void)
 }
 
 int main() {
-    atexit(checkleaks);
+//    atexit(checkleaks);
     PresidentialPardonForm first;
     RobotomyRequestForm first2;
     ShrubberyCreationForm first3;

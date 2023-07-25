@@ -8,6 +8,7 @@ int main() {
     Form *second = new Form();
     Form *third = new Form(3, 3, "strange form");
     Bureaucrat guy(150, "cringe");
+    Bureaucrat guy1(1, "cringe2");
 
     first = *second;
     *second = *third;
@@ -15,6 +16,7 @@ int main() {
     std::cout << second << std::endl;
     std::cout << third << std::endl;
     guy.signForm(third);
+    guy1.signForm(third);
     delete second;
     delete  third;
     return (0);
