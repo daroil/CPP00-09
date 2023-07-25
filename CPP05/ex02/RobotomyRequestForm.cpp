@@ -35,19 +35,19 @@ void    RobotomyRequestForm::execute(const Bureaucrat &executor) const {
     else
     {
         // Create a random device to seed the random number generator
-        std::random_device rd;
+        std::cout  << " BRRRRRRRR.........." << std::endl;
+        std::srand(std::time(0));
 
-        // Create a random number generator and seed it with the random device
-        std::mt19937 generator(rd());
+        // Define the range for the random number (inclusive)
+        int min = 1;
+        int max = 2;
 
-        // Create a distribution to generate probabilities between 0 and 1
-        std::uniform_real_distribution<double> distribution(0.0, 1.0);
+        // Generate the random number in the range [min, max]
+        int randomValue = min + std::rand() % (max - min + 1);
 
-        // Generate a random probability value
-        double probability = distribution(generator);
 
         // Check if the probability is less than or equal to 0.5
-        if (probability <= 0.5) {
+        if (randomValue % 2 == 0) {
             // Call the function
             std::cout << _target << " was succesfully robotomised" << std::endl;
         }
