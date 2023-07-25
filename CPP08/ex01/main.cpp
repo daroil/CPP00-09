@@ -18,7 +18,7 @@ void    subject_test(void)
 void    myTest(void)
 {
     Span sp = Span(5);
-    Span sp2 = Span(5);
+    Span sp2 = Span(10);
     try{
         for(int i = 0; i < 6; i++)
         {
@@ -32,7 +32,21 @@ void    myTest(void)
     std::cout << sp.shortestSpan() << std::endl;
     std::cout << sp2.longestSpan() << std::endl;
     std::cout << sp2.shortestSpan() << std::endl;
-
+    try {
+        sp2.addNumberRange(1, 19);
+    }
+    catch (std::exception &e) {}
+    try {
+        sp2.addNumberRange(7, 12);
+//        sp2.addNumberRange(7, 12);
+        sp2.addNumber(5);
+        sp2.addNumber(19);
+        sp2.addNumber(19);
+    }
+    catch (std::exception &e) {
+        std::cout << "error" << std::endl;
+    }
+    sp2.displaySpan();
 }
 
 int main(void)

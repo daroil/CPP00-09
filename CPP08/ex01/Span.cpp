@@ -40,6 +40,20 @@ void    Span::addNumber(int number) {
     myVector.push_back(number);
 }
 
+void    Span::addNumberRange(int start, int end) {
+    int diff;
+    if (end > start)
+        diff = end - start;
+    else
+        diff = start - end;
+    if (diff > static_cast<int>(_maxSize - _size))
+        throw std::exception();
+    std::vector<int> numbers(diff + 1);
+    std::iota(numbers.begin(), numbers.end(), start);
+    myVector.insert(myVector.end(), numbers.begin(), numbers.end());
+    _size += diff + 1;
+}
+
 void    Span::displaySpan(void)
 {
     for (unsigned int i = 0; i < _size; ++i)
