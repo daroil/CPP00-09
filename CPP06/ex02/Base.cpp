@@ -3,7 +3,7 @@
 Base *generate(void)
 {
     // Create a random device to seed the random number generator
-    std::srand(std::time(0));
+
 
     // Define the range for the random number (inclusive)
     int min = 1;

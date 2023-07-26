@@ -35,6 +35,10 @@ bool ScalarConverter::isChar(char *value)
 
 bool ScalarConverter::isInt(char *value)
 {
+    std::string str = value;
+    std::size_t found = str.find(".");
+    if (found!=std::string::npos)
+        return false;
     char    *endptr;
     double  num = std::strtod(value, &endptr);
     if (*endptr == '\0' && (num >= std::numeric_limits<int>::min() && num <= std::numeric_limits<int>::max()))
@@ -47,11 +51,14 @@ bool ScalarConverter::isFloat(char *value)
     if (isinf(std::strtod(value, NULL)) || isnan(std::strtod(value, NULL)))
         return true;
     std::size_t length = std::strlen(value);
+    std::string str = value;
+    std::size_t found = str.find("f");
+    if (found == std::string::npos)
+        return false;
     if (value[length - 1] == 'f' || value[length - 1] == 'F')
             value[length - 1] = '\0';
     char*	endptr;
     double f = std::strtod(value, &endptr);
-//    std::cout << f << std::endl;
     if (*endptr == '\0'
         && (f >= -std::numeric_limits<float>::max()
             && f <= std::numeric_limits<float>::max()))
