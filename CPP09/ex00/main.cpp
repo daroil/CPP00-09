@@ -6,16 +6,10 @@
 #include <map>
 #include <string>
 
-int main(int argc, char **argv)
+std::map<std::string, float>    fillMapFromInput(std::string inputFile, char del)
 {
-    if(argc != 2){
-
-
-        std::cerr << "Error, wrong input" << std::endl;
-        return (1);
-    }
     std::map<std::string, float> rates;
-    std::ifstream	infile("data.csv");
+    std::ifstream	infile(inputFile);
     std::string line;
 //    int i = 0;
     while(std::getline(infile, line))
@@ -24,7 +18,7 @@ int main(int argc, char **argv)
         std::string name;
         float rate;
         std::cout << std::fixed << std::setprecision(2);
-        if(std::getline(iss, name, ',') && (iss >> rate))
+        if(std::getline(iss, name, del) && (iss >> rate))
         {
 //            std::cout << i << " name " << name << " rate " << rate << std::endl;
 //            i++;
@@ -33,13 +27,29 @@ int main(int argc, char **argv)
 //        else
 //            std::cerr << "error" << std::endl;
     }
+    return rates;
+}
 
-    std::ifstream	input(argv[1]);
+int main(int argc, char **argv)
+{
+    if(argc != 2){
 
 
-
+        std::cerr << "Error, wrong input" << std::endl;
+        return (1);
+    }
+    std::map<std::string, float> rates = fillMapFromInput("data.csv", ',');
 //    for (std::map<std::string, float>::iterator it = rates.begin(); it != rates.end(); ++it) {
 //        std::cout << it->first << "," << it->second << std::endl;
 //    }
+
+
+    std::map<std::string, float> input = fillMapFromInput(argv[1], '|');
+    for (std::map<std::string, float>::iterator it = input.begin(); it != input.end(); ++it) {
+        std::cout << it->first << "," << it->second << std::endl;
+    }
+
+
+
     return 0;
 }
