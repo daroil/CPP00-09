@@ -91,9 +91,9 @@ int main(int argc, char **argv)
         {
             if (std::isdigit(argv[1][i]))
             {
-                std::cout << std::atoi(&argv[1][i]) << std::endl;
+//                std::cout << std::atoi(&argv[1][i]) << std::endl;
                 numStack.push(std::atoi(&argv[1][i]));
-                std::cout << numStack.top() << std::endl;
+//                std::cout << numStack.top() << std::endl;
             }
             else if (isOperandChar(argv[1][i]))
             {
@@ -104,12 +104,12 @@ int main(int argc, char **argv)
                     int result;
 
                     tmp1 = numStack.top();
-                    std::cout << numStack.top() << std::endl;
+//                    std::cout << numStack.top() << std::endl;
                     numStack.pop();
                     if (!numStack.empty())
                     {
                         tmp2 = numStack.top();
-                        std::cout << numStack.top() << std::endl;
+//                        std::cout << numStack.top() << std::endl;
                         numStack.pop();
 //                        std::cout << "i: " << i << std::endl;
 //                        std::cout << "argv i: " << argv[1][i] << std::endl;
@@ -121,6 +121,9 @@ int main(int argc, char **argv)
                         else
                             return (errorMessage("couldn't perform operation"), 1);
                     }
+                    else
+                        return (errorMessage("couldn't perform operation, not enough operands in stack"), 1);
+
 
                 }
                 else
@@ -160,12 +163,12 @@ int main(int argc, char **argv)
                     int result;
 
                     tmp1 = numStack.top();
-                    std::cout << numStack.top() << std::endl;
+//                    std::cout << numStack.top() << std::endl;
                     numStack.pop();
                     if (!numStack.empty())
                     {
                         tmp2 = numStack.top();
-                        std::cout << numStack.top() << std::endl;
+//                        std::cout << numStack.top() << std::endl;
                         numStack.pop();
 //                        std::cout << "argv i: " << argv[i][0] << " tmp1 " << tmp1 << " tmp2 "<< tmp2 << std::endl;
                         if (performOperation(argv[i], &result, tmp2, tmp1))
@@ -176,6 +179,8 @@ int main(int argc, char **argv)
                         else
                             return (errorMessage("couldn't perform operation"), 1);
                     }
+                    else
+                        return (errorMessage("couldn't perform operation, not enough numbers in stack"), 1);
 
                 }
                 else
