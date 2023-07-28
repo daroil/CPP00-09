@@ -36,7 +36,6 @@ void    listTest(void)
     mstack.push_back(5);
     mstack.push_back(737);
     mstack.push_back(0);
-
     std::list<int>::iterator it = mstack.begin();
     std::list<int>::iterator ite = mstack.end();
     ++it;
