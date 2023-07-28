@@ -49,7 +49,6 @@ int getOperand(char str)
 
 bool    performOperation(std::string str, int *result, int tmp1, int tmp2)
 {
-//    std::cout << "front " << str.front() << std::endl;
     switch (getOperand(str.front())) {
         case PLUS:
             *result = tmp1 + tmp2;
@@ -58,17 +57,9 @@ bool    performOperation(std::string str, int *result, int tmp1, int tmp2)
             *result = tmp1 * tmp2;
             return true;
         case MINUS:
-//            if (tmp1 > tmp2)
-//                *result = tmp1 - tmp2;
-//            else
-//                *result = tmp2 - tmp1;
             *result = tmp1 - tmp2;
             return true;
         case DIVIDE:
-//            if (tmp1 > tmp2)
-//                *result = tmp1 / tmp2;
-//            else
-//                *result = tmp2 / tmp1;
             *result = tmp1 / tmp2;
             return true;
         default:
@@ -85,15 +76,11 @@ int main(int argc, char **argv)
     else if(argc == 2)
     {
         std::stack<int>     numStack;
-//        std::stack<char>    operatorStack;
-
         for (size_t i = 0; i < strlen(argv[1]); ++i)
         {
             if (std::isdigit(argv[1][i]))
             {
-//                std::cout << std::atoi(&argv[1][i]) << std::endl;
                 numStack.push(std::atoi(&argv[1][i]));
-//                std::cout << numStack.top() << std::endl;
             }
             else if (isOperandChar(argv[1][i]))
             {
@@ -104,15 +91,11 @@ int main(int argc, char **argv)
                     int result;
 
                     tmp1 = numStack.top();
-//                    std::cout << numStack.top() << std::endl;
                     numStack.pop();
                     if (!numStack.empty())
                     {
                         tmp2 = numStack.top();
-//                        std::cout << numStack.top() << std::endl;
                         numStack.pop();
-//                        std::cout << "i: " << i << std::endl;
-//                        std::cout << "argv i: " << argv[1][i] << std::endl;
                         if (performOperation(&argv[1][i], &result, tmp2, tmp1))
                         {
                             std::cout << "result: " << result << std::endl;
@@ -128,8 +111,6 @@ int main(int argc, char **argv)
                 }
                 else
                     return (errorMessage("couldn't perform operation, stack is empty"), 1);
-//                std::cout << argv[i][0] << std::endl;
-//                operatorStack.push(argv[i][0]);
             }
             else if (std::isspace(argv[1][i]))
                 continue ;
@@ -144,13 +125,10 @@ int main(int argc, char **argv)
     else
     {
         std::stack<int>     numStack;
-//        std::stack<char>    operatorStack;
-
         for (int i = 1; i < argc; ++i)
         {
             if (isCorrectDigit(argv[i]))
             {
-//                std::cout << std::atoi(argv[i]) << std::endl;
                 numStack.push(std::atoi(argv[i]));
             }
             else if (isOperand(argv[i]))
@@ -163,14 +141,11 @@ int main(int argc, char **argv)
                     int result;
 
                     tmp1 = numStack.top();
-//                    std::cout << numStack.top() << std::endl;
                     numStack.pop();
                     if (!numStack.empty())
                     {
                         tmp2 = numStack.top();
-//                        std::cout << numStack.top() << std::endl;
                         numStack.pop();
-//                        std::cout << "argv i: " << argv[i][0] << " tmp1 " << tmp1 << " tmp2 "<< tmp2 << std::endl;
                         if (performOperation(argv[i], &result, tmp2, tmp1))
                         {
                             std::cout << "result: " << result << std::endl;
@@ -185,8 +160,6 @@ int main(int argc, char **argv)
                 }
                 else
                     return (errorMessage("couldn't perform operation, stack is empty"), 1);
-//                std::cout << argv[i][0] << std::endl;
-//                operatorStack.push(argv[i][0]);
             }
             else
             {
@@ -195,8 +168,6 @@ int main(int argc, char **argv)
             }
         }
         std::cout << "success" << std::endl;
-
-
     }
     return 0;
 }
