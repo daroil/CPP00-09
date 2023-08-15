@@ -1,4 +1,4 @@
-#include "helper.hpp"
+#include "../include/helper.hpp"
 void printSequence(std::vector<int>& sequence)
 {
     for (std::vector<int>::iterator iter = sequence.begin(); iter != sequence.end(); iter++)
@@ -75,40 +75,40 @@ void mergeInsertSort(std::vector<int>& sequence, int left, int right)
         }
     }
 }
-
-int main(int argc, char **argv)
-{
-    if (argc < 3)
-    {
-        std::cerr << "Error: Not enough args" << std::endl;
-        return (-1);
-    }
-    std::vector<int> sequence;
-    std::deque<int> deq;
-    int i = 0;
-    while (argv[++i])
-    {
-        sequence.push_back(std::atoi(argv[i]));
-        deq.push_back(std::atoi(argv[i]));
-    }
-    std::cout << "Before: ";
-    printSequence(sequence);
-    std::chrono::high_resolution_clock::time_point start;
-    std::chrono::high_resolution_clock::time_point end;
-    std::chrono::nanoseconds duration;
-//    std::clock_t start_vect = clock();
-    start = std::chrono::high_resolution_clock::now();
-    mergeInsertSort(sequence, 0, sequence.size() - 1);
-    end = std::chrono::high_resolution_clock::now();
-    duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
-    std::cout << "Arter: ";
-    printSequence(sequence);
-    std::cout << "Time to process a range of " << sequence.size() << " elements with std::[vector] : " << duration.count() << " ns" << std::endl;
-    start = std::chrono::high_resolution_clock::now();
-    mergeInsertSortD(deq, 0, deq.size() - 1);
-    end = std::chrono::high_resolution_clock::now();
-    duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
-    std::cout << "Time to process a range of " << sequence.size() << " elements with std::[deque] : " << duration.count() << " ns" << std::endl;
-//    (void) start_vect;
-    return 0;
-}
+//
+//int main(int argc, char **argv)
+//{
+//    if (argc < 3)
+//    {
+//        std::cerr << "Error: Not enough args" << std::endl;
+//        return (-1);
+//    }
+//    std::vector<int> sequence;
+//    std::deque<int> deq;
+//    int i = 0;
+//    while (argv[++i])
+//    {
+//        sequence.push_back(std::atoi(argv[i]));
+//        deq.push_back(std::atoi(argv[i]));
+//    }
+//    std::cout << "Before: ";
+//    printSequence(sequence);
+//    std::chrono::high_resolution_clock::time_point start;
+//    std::chrono::high_resolution_clock::time_point end;
+//    std::chrono::nanoseconds duration;
+////    std::clock_t start_vect = clock();
+//    start = std::chrono::high_resolution_clock::now();
+//    mergeInsertSort(sequence, 0, sequence.size() - 1);
+//    end = std::chrono::high_resolution_clock::now();
+//    duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+//    std::cout << "Arter: ";
+//    printSequence(sequence);
+//    std::cout << "Time to process a range of " << sequence.size() << " elements with std::[vector] : " << duration.count() << " ns" << std::endl;
+//    start = std::chrono::high_resolution_clock::now();
+//    mergeInsertSortD(deq, 0, deq.size() - 1);
+//    end = std::chrono::high_resolution_clock::now();
+//    duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+//    std::cout << "Time to process a range of " << sequence.size() << " elements with std::[deque] : " << duration.count() << " ns" << std::endl;
+////    (void) start_vect;
+//    return 0;
+//}
