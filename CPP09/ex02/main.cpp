@@ -92,6 +92,7 @@ int main(int argc, char **argv)
             std::chrono::high_resolution_clock::time_point start;
             std::chrono::high_resolution_clock::time_point end;
             std::chrono::nanoseconds duration;
+
             start = std::chrono::high_resolution_clock::now();
             sort(vectorPairs, finalSequence, unpaired, hasUnpaired);
             end = std::chrono::high_resolution_clock::now();
@@ -99,11 +100,12 @@ int main(int argc, char **argv)
             std::cout << "After: ";
             printSequence(finalSequence);
             std::cout << "Time to process a range of " << finalSequence.size() << " elements with std::[vector] : " << duration.count() << " ns" << std::endl;
+
             start = std::chrono::high_resolution_clock::now();
             sortD(dequePairs,finalSequenceD,unpaired,hasUnpaired);
             end = std::chrono::high_resolution_clock::now();
             duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
-            std::cout << "Time to process a range of " << finalSequence.size() << " elements with std::[vector] : " << duration.count() << " ns" << std::endl;
+            std::cout << "Time to process a range of " << finalSequenceD.size() << " elements with std::[deque] : " << duration.count() << " ns" << std::endl;
 
         }
     }
