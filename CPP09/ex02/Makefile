@@ -1,8 +1,7 @@
 
 CC = c++ -Wall -Wextra -Werror -std=c++98
 
-SRC := helper.cpp \
-		helper2.cpp \
+SRC := main.cpp \
 
 
 NAME := PmergeMe
