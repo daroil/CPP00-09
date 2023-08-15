@@ -1,11 +1,11 @@
 #include "PmergeMe.hpp"
 
-void merge(std::vector<std::pair<int, int> >& sequence, int left, int mid, int right)
+void mergeD(std::deque<std::pair<int, int> >& sequence, int left, int mid, int right)
 {
     int n1 = mid - left + 1;
     int n2 = right - mid;
-    std::vector<std::pair<int, int> > leftSubsequence(n1);
-    std::vector<std::pair<int, int> > rightSubsequence(n2);
+    std::deque<std::pair<int, int> > leftSubsequence(n1);
+    std::deque<std::pair<int, int> > rightSubsequence(n2);
     for (int i = 0; i < n1; ++i)
         leftSubsequence[i] = sequence[left + i];
     for (int j = 0; j < n2; ++j)
@@ -41,7 +41,7 @@ void merge(std::vector<std::pair<int, int> >& sequence, int left, int mid, int r
     }
 }
 
-void mergeInsertSort(std::vector<std::pair<int, int> >& sequence, int left, int right)
+void mergeInsertSortD(std::deque<std::pair<int, int> >& sequence, int left, int right)
 {
     if (left < right)
     {
@@ -64,14 +64,13 @@ void mergeInsertSort(std::vector<std::pair<int, int> >& sequence, int left, int 
         else
         {
             int mid = left + (right - left) / 2;
-            mergeInsertSort(sequence, left, mid);
-            mergeInsertSort(sequence, mid + 1, right);
-            merge(sequence, left, mid, right);
+            mergeInsertSortD(sequence, left, mid);
+            mergeInsertSortD(sequence, mid + 1, right);
+            mergeD(sequence, left, mid, right);
         }
     }
 }
-
-void    binarySearch(std::vector<int> & finalSequence, int number, int left, int right)
+void    binarySearchD(std::deque<int> & finalSequence, int number, int left, int right)
 {
     if (left < right)
     {
@@ -80,42 +79,39 @@ void    binarySearch(std::vector<int> & finalSequence, int number, int left, int
         if (number >= finalSequence[mid - 1] && number <= finalSequence[mid])
             finalSequence.insert(finalSequence.begin() + mid, number);
         else if (number > finalSequence[mid])
-            binarySearch(finalSequence, number, mid + 1, right);
+            binarySearchD(finalSequence, number, mid + 1, right);
         else if (number < finalSequence[mid])
-            binarySearch(finalSequence, number, left, mid);
+            binarySearchD(finalSequence, number, left, mid);
     }
     else
         finalSequence.insert(finalSequence.begin() + right, number);
 }
 
-
-
-void    sort(std::vector<std::pair<int, int> > &vectorPairs, std::vector<int> &finalSequence, int unpaired, bool hasUnpaired)
+void    sortD(std::deque<std::pair<int, int> > &dequePairs, std::deque<int> &finalSequence, int unpaired, bool hasUnpaired)
 {
-    for (std::vector<std::pair<int, int> >::iterator iter = vectorPairs.begin(); iter != vectorPairs.end(); iter++)
+    for (std::deque<std::pair<int, int> >::iterator iter = dequePairs.begin(); iter != dequePairs.end(); iter++)
     {
         compareSwap(*iter);
     }
     //        printSequencePairs(vectorPairs);
-    mergeInsertSort(vectorPairs, 0, vectorPairs.size() - 1);
+    mergeInsertSortD(dequePairs, 0, dequePairs.size() - 1);
     //        printSequencePairs(vectorPairs);
 
-    for (std::vector<std::pair<int, int> >::iterator iter = vectorPairs.begin(); iter != vectorPairs.end(); iter++)
+    for (std::deque<std::pair<int, int> >::iterator iter = dequePairs.begin(); iter != dequePairs.end(); iter++)
     {
         finalSequence.push_back(iter->second);
     }
-    finalSequence.insert(finalSequence.begin(),vectorPairs.front().first);
+    finalSequence.insert(finalSequence.begin(),dequePairs.front().first);
     //        printSequence(finalSequence);
 
-    for (std::vector<std::pair<int, int> >::iterator iter = vectorPairs.begin() + 1; iter != vectorPairs.end(); iter++)
+    for (std::deque<std::pair<int, int> >::iterator iter = dequePairs.begin() + 1; iter != dequePairs.end(); iter++)
     {
-        binarySearch(finalSequence, iter->first, 0, finalSequence.size() - 1);
+        binarySearchD(finalSequence, iter->first, 0, finalSequence.size() - 1);
     }
     //        printSequence(finalSequence);
     if (hasUnpaired)
     {
         //            std::cout << "Unpaired " << unpaired << std::endl;
-        binarySearch(finalSequence, unpaired, 0, finalSequence.size() - 1);
+        binarySearchD(finalSequence, unpaired, 0, finalSequence.size() - 1);
     }
 }
-
