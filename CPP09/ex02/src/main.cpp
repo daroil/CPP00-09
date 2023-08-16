@@ -49,11 +49,11 @@ int main(int argc, char **argv)
         return (1);
     }
     else{
-        if (!std::isdigit(*argv[1]))
-        {
-            std::cerr << "Error, program accepts only sequence of positive integers in a form of individual arguments" << std::endl;
-            return 1;
-        }
+//        if (!std::isdigit(*argv[1]))
+//        {
+//            std::cerr << "Error, program accepts only sequence of positive integers in a form of individual arguments" << std::endl;
+//            return 1;
+//        }
         std::vector<std::pair<int, int> >    vectorPairs;
         std::deque<std::pair<int, int> >     dequePairs;
         int unpaired;
