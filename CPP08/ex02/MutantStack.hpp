@@ -12,7 +12,9 @@ class MutantStack : public std::stack<T>
 {
 public:
     typedef typename std::stack<T>::container_type::iterator iterator; //define a type alias for the iterator type of the container
+    typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator; //define a type alias for the iterator type of the container
     typedef typename std::stack<T>::container_type::const_iterator const_iterator; //define a type alias for the const iterator type of the container
+    typedef typename std::stack<T>::container_type::const_reverse_iterator const_reverse_iterator; //define a type alias for the const iterator type of the container
 
     MutantStack() {
 //        std::cout << "MutantStack was created" << std::endl << std::endl;
@@ -29,6 +31,7 @@ public:
     MutantStack	&operator=(const MutantStack &src) {
         if (this == &src)
             return (*this);
+        this->c = src.c;
         return (*this);
     }
 
@@ -46,6 +49,22 @@ public:
 
     const_iterator end() const{
         return (std::stack<T>::c.end());
+    }
+
+    reverse_iterator rbegin(){
+        return (std::stack<T>::c.rbegin());
+    }
+
+    reverse_iterator rend(){
+        return (std::stack<T>::c.rend());
+    }
+
+    const_reverse_iterator rbegin() const {
+        return (std::stack<T>::c.rbegin());
+    }
+
+    const_reverse_iterator rend() const {
+        return (std::stack<T>::c.rend());
     }
 
 private:
