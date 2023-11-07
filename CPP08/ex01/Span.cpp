@@ -19,7 +19,7 @@ Span::Span(Span const &Span)
 Span &Span::operator=( Span const &copy) {
     this->_size = copy._size;
     this->_maxSize = copy._maxSize;
-    this->myVector = copy.myVector;
+    this->_vector = copy._vector;
     std::cout << "Copy assignment operator called" << std::endl;
     return (*this);
 }
@@ -36,7 +36,7 @@ void    Span::addNumber(int number) {
         throw std::exception();
     }
     _size++;
-    myVector.push_back(number);
+    _vector.push_back(number);
 }
 
 void    Span::addNumberRange(int start, int end) {
@@ -49,30 +49,52 @@ void    Span::addNumberRange(int start, int end) {
         throw std::exception();
     std::vector<int> numbers(diff + 1);
     std::iota(numbers.begin(), numbers.end(), start);
-    myVector.insert(myVector.end(), numbers.begin(), numbers.end());
+    _vector.insert(_vector.end(), numbers.begin(), numbers.end());
     _size += diff + 1;
+}
+
+int generateRandom() {
+    return std::rand() % 100 + 1; // Adjust the range as needed
+}
+
+void    Span::addNumberRandRange(int amount) {
+    if (amount > static_cast<int>(_maxSize - _size))
+        throw std::exception();
+    std::vector<int> numbers(amount);
+
+    // Seed the random number generator with the current time
+    std::srand(static_cast<unsigned int>(std::time(NULL)));
+
+    // Use std::generate to fill the container with random values
+    std::generate(numbers.begin(), numbers.end(), generateRandom); // Adjust the range as needed
+    _vector.insert(_vector.end(), numbers.begin(), numbers.end());
+    _size += amount;
 }
 
 void    Span::displaySpan(void)
 {
     for (unsigned int i = 0; i < _size; ++i)
-        std::cout << myVector[i] << std::endl;
+        std::cout << _vector[i] << std::endl;
 }
 
 int     Span::shortestSpan() {
-    if(myVector.empty())
+    if(_vector.empty())
     {
         std::cout << "Vector is empty!" << std::endl;
         return 0;
     }
+    if (_vector.size() == 1)
+        return 0;
     int shortest_span = INT_MAX;
-    std::vector<int> sortedArray = myVector;
+    int diff = 0;
+    std::vector<int> sortedArray = _vector;
     std::sort(sortedArray.begin(), sortedArray.end());
     for (size_t i = 0; i < sortedArray.size(); i++)
+//    for (std::vector<int>::iterator it = sortedArray.begin(); it != sortedArray.end(); ++it)
     {
-        if (sortedArray[i + 1])
+        if (sortedArray[i+1])
         {
-            int diff = sortedArray[i + 1] - sortedArray[i];
+            diff = sortedArray[i+1] - sortedArray[i];
             shortest_span = std::min(shortest_span, diff);
         }
     }
@@ -81,13 +103,13 @@ int     Span::shortestSpan() {
 
 int Span::longestSpan() {
 
-    if(myVector.empty())
+    if(_vector.empty())
     {
         std::cout << "Vector is empty!" << std::endl;
         return 0;
     }
-    std::vector<int>::iterator maxElementIt = std::max_element(myVector.begin(), myVector.end());
-    std::vector<int>::iterator minElementIt = std::min_element(myVector.begin(), myVector.end());
+    std::vector<int>::iterator maxElementIt = std::max_element(_vector.begin(), _vector.end());
+    std::vector<int>::iterator minElementIt = std::min_element(_vector.begin(), _vector.end());
 
     return *maxElementIt - *minElementIt;
 }

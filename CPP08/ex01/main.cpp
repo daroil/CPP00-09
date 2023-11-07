@@ -25,6 +25,7 @@ void    myTest(void)
     }
     catch (std::exception &e) {}
     sp.displaySpan();
+
     std::cout << sp.longestSpan() << std::endl;
     std::cout << sp.shortestSpan() << std::endl;
     std::cout << sp2.longestSpan() << std::endl;
@@ -46,9 +47,28 @@ void    myTest(void)
     sp2.displaySpan();
 }
 
+void    SuperLongTest()
+{
+    Span sp = Span(130);
+    try {
+//        sp.addNumberRange(1, 10000);
+        sp.addNumberRandRange(1000);
+//        sp.addNumber(5);
+//        sp.addNumber(19);
+//        sp.addNumber(27);
+    }
+    catch (std::exception &e) {
+        std::cout << "error" << std::endl;
+    }
+    sp.displaySpan();
+    std::cout << "shortest "<< sp.shortestSpan() << std::endl;
+    std::cout << "longest "<< sp.longestSpan() << std::endl;
+}
+
 int main(void)
 {
     subject_test();
     myTest();
+    SuperLongTest();
     return 0;
 }

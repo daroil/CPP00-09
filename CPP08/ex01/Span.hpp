@@ -17,12 +17,13 @@ public:
 
     void    addNumber(int number);
     void    addNumberRange(int start, int end);
+    void    addNumberRandRange(int amount);
     int     shortestSpan(void);
     int     longestSpan(void);
 
     void    displaySpan(void);
 private:
     unsigned int        _maxSize;
-    std::vector<int>    myVector;
+    std::vector<int>    _vector;
     unsigned int        _size;
 };
