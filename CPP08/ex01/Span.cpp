@@ -1,6 +1,5 @@
 #include "Span.hpp"
 
-
 Span::Span(void) : _maxSize(5), _size(0)
 {
     std::cout << "The default constructor" << std::endl;
@@ -79,7 +78,6 @@ int     Span::shortestSpan() {
     }
     return shortest_span;
 }
-
 
 int Span::longestSpan() {
 

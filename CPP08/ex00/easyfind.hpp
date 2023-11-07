@@ -18,10 +18,8 @@
 
 template <typename T>
 typename T::iterator easyfind(T& container, int value) {
-    // Find the first occurrence of 'value' in the container
     typename T::iterator it = std::find(container.begin(), container.end(), value);
 
-    // Check if the element was found
     if (it != container.end()) {
         return it;
     } else {

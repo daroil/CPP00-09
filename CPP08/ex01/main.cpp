@@ -1,9 +1,7 @@
 #include "Span.hpp"
 
-
 void    subject_test(void)
 {
-
     Span sp = Span(5);
     sp.addNumber(6);
     sp.addNumber(3);
@@ -12,7 +10,6 @@ void    subject_test(void)
     sp.addNumber(11);
     std::cout << sp.shortestSpan() << std::endl;
     std::cout << sp.longestSpan() << std::endl;
-
 }
 
 void    myTest(void)
