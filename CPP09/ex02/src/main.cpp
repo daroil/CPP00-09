@@ -91,21 +91,21 @@ int main(int argc, char **argv)
                 std::cout << "Unpaired " << unpaired << std::endl;
             std::chrono::high_resolution_clock::time_point start;
             std::chrono::high_resolution_clock::time_point end;
-            std::chrono::milliseconds duration;
+            std::chrono::microseconds duration;
 
             start = std::chrono::high_resolution_clock::now();
             sort(vectorPairs, finalSequence, unpaired, hasUnpaired);
             end = std::chrono::high_resolution_clock::now();
-            duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+            duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
             std::cout << "After: ";
             printSequence(finalSequence);
-            std::cout << "Time to process a range of " << finalSequence.size() << " elements with std::[vector] : " << duration.count() << " ms" << std::endl;
+            std::cout << "Time to process a range of " << finalSequence.size() << " elements with std::[vector] : " << duration.count() << " us" << std::endl;
 
             start = std::chrono::high_resolution_clock::now();
             sortD(dequePairs,finalSequenceD,unpaired,hasUnpaired);
             end = std::chrono::high_resolution_clock::now();
-            duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-            std::cout << "Time to process a range of " << finalSequenceD.size() << " elements with std::[deque] : " << duration.count() << " ms" << std::endl;
+            duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+            std::cout << "Time to process a range of " << finalSequenceD.size() << " elements with std::[deque] : " << duration.count() << " us" << std::endl;
 
         }
     }
