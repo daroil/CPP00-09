@@ -42,23 +42,53 @@ void    insertSort(std::vector<std::pair<int, int> > &sequence)
     }
 }
 
+bool    checkIfSorted(int argc, char **argv)
+{
+    for (int i = 1; i < argc - 1; ++i)
+    {
+//        std::cerr << "trigger" << argv[i] << " second " << argv[i+1] << std::endl;
+        if (std::atoi(argv[i]) > std::atoi(argv[i+1]))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool    checkIfDigit(int argc, char **argv)
+{
+    for (int i = 1; i < argc; ++i)
+    {
+        for(size_t j  = 0; j < std::strlen(argv[i]); ++j)
+        {
+            if (!std::isdigit(argv[i][j]))
+                return false;
+        }
+    }
+    return true;
+}
+
 int main(int argc, char **argv)
 {
     if (argc < 2){
         std::cerr << "Error, program accepts only sequence of positive integers in a form of individual arguments" << std::endl;
         return (1);
     }
-    else{
-//        if (!std::isdigit(*argv[1]))
-//        {
-//            std::cerr << "Error, program accepts only sequence of positive integers in a form of individual arguments" << std::endl;
-//            return 1;
-//        }
-        std::vector<std::pair<int, int> >    vectorPairs;
-        std::deque<std::pair<int, int> >     dequePairs;
+    else {
+        if (!checkIfDigit(argc, argv))
+        {
+            std::cerr << "Error, program accepts only sequence of positive integers in a form of individual arguments" << std::endl;
+            return 1;
+        }
+        if (checkIfSorted(argc, argv))
+        {
+            std::cerr << "Error numbers are already sorted" << std::endl;
+            return 1;
+        }
+        std::vector <std::pair<int, int> > vectorPairs;
+        std::deque <std::pair<int, int> > dequePairs;
         int unpaired;
         bool hasUnpaired = false;
-
         if ((argc - 1) % 2 == 0)
         {
             for(int i = 1; i < argc; i = i + 2)
@@ -89,23 +119,23 @@ int main(int argc, char **argv)
             printSequencePairs(vectorPairs);
             if (hasUnpaired)
                 std::cout << "Unpaired " << unpaired << std::endl;
-            std::chrono::high_resolution_clock::time_point start;
-            std::chrono::high_resolution_clock::time_point end;
-            std::chrono::microseconds duration;
+            double duration;
 
-            start = std::chrono::high_resolution_clock::now();
+            std::clock_t st = std::clock();
             sort(vectorPairs, finalSequence, unpaired, hasUnpaired);
-            end = std::chrono::high_resolution_clock::now();
-            duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+            std::clock_t end = std::clock();
+            duration = static_cast<double >(end - st)/CLOCKS_PER_SEC;
+
             std::cout << "After: ";
             printSequence(finalSequence);
-            std::cout << "Time to process a range of " << finalSequence.size() << " elements with std::[vector] : " << duration.count() << " us" << std::endl;
+            std::cout << "Time to process a range of " << finalSequence.size() << " elements with std::[vector] : " << duration * 1000 << " ms" << std::endl;
 
-            start = std::chrono::high_resolution_clock::now();
+            st = std::clock();
             sortD(dequePairs,finalSequenceD,unpaired,hasUnpaired);
-            end = std::chrono::high_resolution_clock::now();
-            duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
-            std::cout << "Time to process a range of " << finalSequenceD.size() << " elements with std::[deque] : " << duration.count() << " us" << std::endl;
+            end = std::clock();
+            duration = static_cast<double >(end - st)/CLOCKS_PER_SEC;
+
+            std::cout << "Time to process a range of " << finalSequenceD.size() << " elements with std::[deque] : " << duration * 1000 << " ms" << std::endl;
 
         }
     }
